@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card, SectionHeader } from '../components/Shared';
-import { MOCK_INTEGRATIONS, MOCK_WEBHOOKS, MOCK_LEADS } from '../services/mockData';
-import { IntegrationStatus, WebhookStatus } from '../types';
+import { fetchIntegrations, fetchLeads } from '../services/api';
+import { Integration, Lead, IntegrationStatus } from '../types';
 import { Activity, AlertCircle, ArrowUpRight, Zap } from 'lucide-react';
 
 const StatCard: React.FC<{ title: string, value: string | number, icon: React.ElementType, trend?: string }> = ({ title, value, icon: Icon, trend }) => (
@@ -31,80 +31,113 @@ const StatCard: React.FC<{ title: string, value: string | number, icon: React.El
 );
 
 export const Dashboard: React.FC = () => {
+  const [integrations, setIntegrations] = useState<Integration[]>([]);
+  const [leads, setLeads] = useState<Lead[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        const [intData, leadsData] = await Promise.all([
+          fetchIntegrations(),
+          fetchLeads()
+        ]);
+        setIntegrations(intData);
+        setLeads(leadsData);
+      } catch (error) {
+        console.error("Erro ao carregar dados do dashboard:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    loadData();
+  }, []);
+
   // Calculate stats
-  const totalIntegrations = MOCK_INTEGRATIONS.length;
-  const activeIntegrations = MOCK_INTEGRATIONS.filter(i => i.status === IntegrationStatus.Active).length;
+  const totalIntegrations = integrations.length;
+  const activeIntegrations = integrations.filter(i => i.status === IntegrationStatus.Active).length;
   
-  // Mock "Today" filtering by just taking a subset
-  const webhooksToday = MOCK_WEBHOOKS.length; 
-  const leadsToday = MOCK_LEADS.length;
-  const failedEvents = MOCK_WEBHOOKS.filter(w => w.status === WebhookStatus.Failed).length;
-  const lastWebhook = MOCK_WEBHOOKS.sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime())[0];
+  // Como não temos endpoint de webhooks ainda, usamos 0 ou dados derivados
+  const webhooksToday = 0; 
+  const leadsToday = leads.length;
+  const failedEvents = 0;
+  
+  // Usar o último lead como referência de atividade
+  const lastActivity = leads.length > 0 
+    ? [...leads].sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())[0] 
+    : null;
+
+  if (loading) {
+    return <div className="p-6 text-gray-500">Carregando dados do sistema...</div>;
+  }
 
   return (
     <div className="space-y-6">
-      <SectionHeader title="Dashboard" subtitle="Operational overview of the integration system." />
+      <SectionHeader title="Dashboard" subtitle="Visão geral operacional do sistema." />
 
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
         <StatCard 
-          title="Total Integrations" 
+          title="Total Integrações" 
           value={totalIntegrations} 
           icon={Zap}
-          trend={`${activeIntegrations} Active`}
+          trend={`${activeIntegrations} Ativas`}
         />
         <StatCard 
-          title="Webhooks Today" 
+          title="Webhooks (Hoje)" 
           value={webhooksToday} 
           icon={Activity} 
-          trend="+12%"
+          trend="N/A"
         />
         <StatCard 
-          title="Leads Processed" 
+          title="Leads Processados" 
           value={leadsToday} 
           icon={ArrowUpRight} 
-          trend="+5%"
+          trend="Total"
         />
         <StatCard 
-          title="Failed Events" 
+          title="Eventos Falhos" 
           value={failedEvents} 
           icon={AlertCircle} 
         />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <Card title="System Status">
+        <Card title="Status do Sistema">
            <div className="flex items-center justify-between py-4 border-b border-gray-100 last:border-0">
-              <span className="text-sm text-gray-600">Last Webhook Received</span>
-              <span className="text-sm font-mono font-medium">{lastWebhook ? new Date(lastWebhook.timestamp).toLocaleTimeString() : 'N/A'}</span>
+              <span className="text-sm text-gray-600">Última Atividade</span>
+              <span className="text-sm font-mono font-medium">{lastActivity ? new Date(lastActivity.createdAt).toLocaleString() : 'N/A'}</span>
            </div>
            <div className="flex items-center justify-between py-4 border-b border-gray-100 last:border-0">
-              <span className="text-sm text-gray-600">API Latency (Avg)</span>
-              <span className="text-sm font-mono font-medium text-green-600">45ms</span>
+              <span className="text-sm text-gray-600">Latência API (Est.)</span>
+              <span className="text-sm font-mono font-medium text-green-600">~45ms</span>
            </div>
            <div className="flex items-center justify-between py-4 border-b border-gray-100 last:border-0">
-              <span className="text-sm text-gray-600">Database Connection</span>
+              <span className="text-sm text-gray-600">Conexão Backend</span>
               <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-green-100 text-green-800">
-                Healthy
+                Online
               </span>
            </div>
         </Card>
         
-        <Card title="Recent Activity">
+        <Card title="Atividade Recente (Leads)">
            <ul className="divide-y divide-gray-100">
-             {MOCK_WEBHOOKS.slice(0, 4).map(evt => (
-               <li key={evt.id} className="py-3 flex justify-between items-center text-sm">
+             {leads.slice(0, 5).map(lead => (
+               <li key={lead.id} className="py-3 flex justify-between items-center text-sm">
                  <div className="flex flex-col">
-                   <span className="font-medium text-gray-900">{evt.source}</span>
-                   <span className="text-gray-500 text-xs">for {evt.integrationName}</span>
+                   <span className="font-medium text-gray-900">{lead.name}</span>
+                   <span className="text-gray-500 text-xs">via {lead.integrationName}</span>
                  </div>
                  <div className="flex flex-col items-end">
-                    <span className={evt.status === WebhookStatus.Failed ? 'text-red-600 font-medium' : 'text-gray-600'}>
-                      {evt.status}
+                    <span className={lead.status === 'Error' ? 'text-red-600 font-medium' : 'text-gray-600'}>
+                      {lead.status}
                     </span>
-                    <span className="text-gray-400 text-xs">{new Date(evt.timestamp).toLocaleTimeString()}</span>
+                    <span className="text-gray-400 text-xs">{new Date(lead.createdAt).toLocaleTimeString()}</span>
                  </div>
                </li>
              ))}
+             {leads.length === 0 && (
+                <li className="py-3 text-sm text-gray-500 text-center">Nenhuma atividade recente.</li>
+             )}
            </ul>
         </Card>
       </div>

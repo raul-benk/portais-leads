@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { MOCK_INTEGRATIONS, MOCK_WEBHOOKS, MOCK_LEADS } from '../services/mockData';
+import { MOCK_WEBHOOKS, MOCK_LEADS } from '../services/mockData'; // Mantendo mocks apenas para Events/Leads por enquanto
+import { fetchIntegrations, updateIntegration } from '../services/api';
 import { Integration, IntegrationStatus, SetupChecklistItem } from '../types';
 import { SectionHeader, Button, Badge, Card, CopyInput, Input, Checkbox, formatDate, cn, EmptyState } from '../components/Shared';
-import { ArrowLeft, Save, RefreshCw, Eye, AlertCircle, Terminal, CheckCircle2, ExternalLink } from 'lucide-react';
+import { ArrowLeft, Save, RefreshCw, Eye, AlertCircle, Terminal, CheckCircle2, ExternalLink, Loader2 } from 'lucide-react';
 
 // --- Sub-Components for Tabs ---
 
@@ -50,16 +51,24 @@ const OverviewTab: React.FC<{ integration: Integration, onToggleStatus: () => vo
   </div>
 );
 
-const CredentialsTab: React.FC<{ integration: Integration }> = ({ integration }) => {
+const CredentialsTab: React.FC<{ integration: Integration, onUpdate: (data: Partial<Integration>) => Promise<void> }> = ({ integration, onUpdate }) => {
   const [formData, setFormData] = useState(integration.credentials);
   const [showToken, setShowToken] = useState(false);
+  const [saving, setSaving] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSave = () => {
-    alert("Credentials saved (Mock Action)");
+  const handleSave = async () => {
+    setSaving(true);
+    try {
+      await onUpdate({ credentials: { ...integration.credentials, ...formData } });
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setSaving(false);
+    }
   };
 
   return (
@@ -90,9 +99,9 @@ const CredentialsTab: React.FC<{ integration: Integration }> = ({ integration })
 
           <div className="pt-4 border-t border-gray-100 flex items-center justify-between">
             <span className="text-xs text-gray-500">Last updated: {formatDate(integration.credentials.lastUpdated)}</span>
-            <Button onClick={handleSave}>
-              <Save className="h-4 w-4 mr-2" />
-              Save Credentials
+            <Button onClick={handleSave} disabled={saving}>
+              {saving ? <Loader2 className="h-4 w-4 mr-2 animate-spin" /> : <Save className="h-4 w-4 mr-2" />}
+              Salvar Credenciais
             </Button>
           </div>
         </div>
@@ -101,13 +110,25 @@ const CredentialsTab: React.FC<{ integration: Integration }> = ({ integration })
   );
 };
 
-const ChecklistTab: React.FC<{ integration: Integration }> = ({ integration }) => {
+const ChecklistTab: React.FC<{ integration: Integration, onUpdate: (data: Partial<Integration>) => Promise<void> }> = ({ integration, onUpdate }) => {
   const [items, setItems] = useState<SetupChecklistItem[]>(integration.checklist);
+  const [saving, setSaving] = useState(false);
 
   const toggleItem = (id: string) => {
     setItems(items.map(item => 
       item.id === id ? { ...item, checked: !item.checked, status: !item.checked ? 'Done' : 'Pending' } : item
     ));
+  };
+
+  const handleSave = async () => {
+    setSaving(true);
+    try {
+      await onUpdate({ checklist: items });
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setSaving(false);
+    }
   };
 
   const completed = items.filter(i => i.checked).length;
@@ -152,7 +173,10 @@ const ChecklistTab: React.FC<{ integration: Integration }> = ({ integration }) =
           ))}
         </ul>
         <div className="mt-4 text-right">
-           <Button size="sm" variant="outline" onClick={() => alert("Changes saved")}>Update Checklist</Button>
+           <Button size="sm" variant="outline" onClick={handleSave} disabled={saving}>
+             {saving && <Loader2 className="h-3 w-3 mr-2 animate-spin" />}
+             Atualizar Checklist
+           </Button>
         </div>
       </Card>
     </div>
@@ -331,21 +355,39 @@ const LeadsTab: React.FC<{ integrationId: string }> = ({ integrationId }) => {
 export const IntegrationDetail: React.FC = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [integration, setIntegration] = useState<Integration | undefined>(MOCK_INTEGRATIONS.find(i => i.id === id));
+  const [integration, setIntegration] = useState<Integration | undefined>();
+  const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState<'overview' | 'credentials' | 'checklist' | 'dns' | 'events' | 'leads'>('overview');
 
+  const loadData = async () => {
+    try {
+      setLoading(true);
+      const list = await fetchIntegrations();
+      const found = list.find(i => i.id === id);
+      setIntegration(found);
+    } catch (e) {
+      console.error("Failed to load integration", e);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
-    // In a real app, fetch here.
-    const found = MOCK_INTEGRATIONS.find(i => i.id === id);
-    setIntegration(found);
+    loadData();
   }, [id]);
 
-  if (!integration) {
-    return <div className="p-8">Integration not found.</div>;
-  }
+  if (loading) return <div className="p-8 text-center text-gray-500">Carregando detalhes...</div>;
+  if (!integration) return <div className="p-8 text-center text-red-500">Integração não encontrada.</div>;
 
-  const handleToggleStatus = () => {
-    setIntegration(prev => prev ? ({ ...prev, status: prev.status === IntegrationStatus.Active ? IntegrationStatus.Paused : IntegrationStatus.Active }) : undefined);
+  const handleUpdate = async (updates: Partial<Integration>) => {
+    if (!integration) return;
+    await updateIntegration(integration.id, updates);
+    await loadData();
+  };
+
+  const handleToggleStatus = async () => {
+    const newStatus = integration.status === IntegrationStatus.Active ? IntegrationStatus.Paused : IntegrationStatus.Active;
+    await handleUpdate({ status: newStatus });
   };
 
   const tabs = [
@@ -382,7 +424,7 @@ export const IntegrationDetail: React.FC = () => {
             </div>
          </div>
          <div className="mt-4 md:mt-0 flex space-x-3">
-            <Button variant="outline">
+            <Button variant="outline" onClick={loadData}>
                <RefreshCw className="h-4 w-4 mr-2" />
                Sync Config
             </Button>
@@ -416,8 +458,8 @@ export const IntegrationDetail: React.FC = () => {
       {/* Tab Content */}
       <div className="pt-2">
         {activeTab === 'overview' && <OverviewTab integration={integration} onToggleStatus={handleToggleStatus} />}
-        {activeTab === 'credentials' && <CredentialsTab integration={integration} />}
-        {activeTab === 'checklist' && <ChecklistTab integration={integration} />}
+        {activeTab === 'credentials' && <CredentialsTab integration={integration} onUpdate={handleUpdate} />}
+        {activeTab === 'checklist' && <ChecklistTab integration={integration} onUpdate={handleUpdate} />}
         {activeTab === 'dns' && <DNSInstructionsTab integration={integration} />}
         {activeTab === 'events' && <EventsTab integrationId={integration.id} />}
         {activeTab === 'leads' && <LeadsTab integrationId={integration.id} />}

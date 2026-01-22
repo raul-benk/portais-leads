@@ -1,9 +1,8 @@
 require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
-const fs = require('fs-extra');
-const path = require('path');
 const crypto = require('crypto');
+const storage = require('./storage');
 
 const app = express();
 const PORT = 3434;
@@ -25,25 +24,6 @@ app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
 app.use(bodyParser.text({ type: '*/*', limit: '50mb' }));
 
 // ================================
-// Paths de log
-// ================================
-const LOG_DIR = path.resolve('./logs');
-const OUTPUT_DIR = path.resolve('./output');
-const WEBHOOK_LOG_FILE = path.join(LOG_DIR, 'webhook-events.json');
-const LEADS_FILE = path.join(OUTPUT_DIR, 'leads.json');
-const INTEGRATIONS_FILE = path.join(OUTPUT_DIR, 'integrations.json');
-
-// ================================
-// Garante estrutura
-// ================================
-fs.ensureDirSync(LOG_DIR);
-fs.ensureDirSync(OUTPUT_DIR);
-
-if (!fs.existsSync(WEBHOOK_LOG_FILE)) fs.writeJsonSync(WEBHOOK_LOG_FILE, []);
-if (!fs.existsSync(LEADS_FILE)) fs.writeJsonSync(LEADS_FILE, []);
-if (!fs.existsSync(INTEGRATIONS_FILE)) fs.writeJsonSync(INTEGRATIONS_FILE, []);
-
-// ================================
 // CRM Client
 // ================================
 const { createContact, upsertOpportunity } = require('./crm-client.js');
@@ -55,8 +35,13 @@ const { createContact, upsertOpportunity } = require('./crm-client.js');
 // Listar integrações
 app.get('/api/integrations', async (req, res) => {
   try {
-    const integrations = await fs.readJson(INTEGRATIONS_FILE);
-    res.json(integrations);
+    const integrations = await storage.readIntegrations();
+    // Mascara o token para segurança no frontend
+    const safeIntegrations = integrations.map(i => ({
+      ...i,
+      credentials: { ...i.credentials, pitToken: i.credentials?.pitToken ? '****' + i.credentials.pitToken.slice(-4) : '' }
+    }));
+    res.json(safeIntegrations);
   } catch (error) {
     res.status(500).json({ error: 'Erro ao listar integrações' });
   }
@@ -68,7 +53,7 @@ app.post('/api/integrations', async (req, res) => {
     const { name, slug } = req.body;
     if (!name || !slug) return res.status(400).json({ error: 'Nome e Slug são obrigatórios' });
 
-    const integrations = await fs.readJson(INTEGRATIONS_FILE);
+    const integrations = await storage.readIntegrations();
     
     if (integrations.find(i => i.slug === slug)) {
       return res.status(400).json({ error: 'Slug já existe' });
@@ -95,8 +80,8 @@ app.post('/api/integrations', async (req, res) => {
       ]
     };
 
-    integrations.push(newIntegration);
-    await fs.writeJson(INTEGRATIONS_FILE, integrations, { spaces: 2 });
+    // Adiciona e salva
+    await storage.writeIntegrations([...integrations, newIntegration]);
     res.json(newIntegration);
   } catch (error) {
     console.error(error);
@@ -109,7 +94,7 @@ app.put('/api/integrations/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const updates = req.body;
-    const integrations = await fs.readJson(INTEGRATIONS_FILE);
+    const integrations = await storage.readIntegrations();
     const index = integrations.findIndex(i => i.id === id);
 
     if (index === -1) return res.status(404).json({ error: 'Integração não encontrada' });
@@ -128,7 +113,7 @@ app.put('/api/integrations/:id', async (req, res) => {
     if (updates.status) integrations[index].status = updates.status;
     if (updates.checklist) integrations[index].checklist = updates.checklist;
 
-    await fs.writeJson(INTEGRATIONS_FILE, integrations, { spaces: 2 });
+    await storage.writeIntegrations(integrations);
     res.json(integrations[index]);
   } catch (error) {
     res.status(500).json({ error: 'Erro ao atualizar integração' });
@@ -143,8 +128,7 @@ app.post('/webhook/email/:slug', async (req, res) => {
     const { slug } = req.params;
     
     // 0. Busca a integração e credenciais
-    const integrations = await fs.readJson(INTEGRATIONS_FILE);
-    const integration = integrations.find(i => i.slug === slug);
+    const integration = await storage.getIntegrationBySlug(slug);
 
     if (!integration) {
       console.warn(`⚠️ Webhook recebido para slug desconhecido: ${slug}`);
@@ -165,9 +149,7 @@ app.post('/webhook/email/:slug', async (req, res) => {
     };
 
     // 1. Salva o evento original
-    const currentLogs = await fs.readJson(WEBHOOK_LOG_FILE);
-    currentLogs.push(event);
-    await fs.writeJson(WEBHOOK_LOG_FILE, currentLogs);
+    await storage.appendWebhookEvent(event);
     console.log(`📩 Webhook recebido para ${slug} e salvo com sucesso`);
 
     // Atualiza checklist da integração (Webhook receiving data)
@@ -175,7 +157,11 @@ app.post('/webhook/email/:slug', async (req, res) => {
     if (checkItem && !checkItem.checked) {
       checkItem.checked = true;
       checkItem.status = 'Done';
-      await fs.writeJson(INTEGRATIONS_FILE, integrations, { spaces: 2 });
+      // Atualiza a integração no storage
+      const allIntegrations = await storage.readIntegrations();
+      const intIndex = allIntegrations.findIndex(i => i.id === integration.id);
+      if (intIndex !== -1) allIntegrations[intIndex] = integration;
+      await storage.writeIntegrations(allIntegrations);
     }
 
     let dataToSave = null;
@@ -214,21 +200,16 @@ app.post('/webhook/email/:slug', async (req, res) => {
     };
 
     console.log('✅ Dados processados do webhook:', JSON.stringify(leadData, null, 2));
-    let currentLeads = await fs.readJson(LEADS_FILE);
-    currentLeads.push(leadData);
-    await fs.writeJson(LEADS_FILE, currentLeads);
-    console.log(`💾 Dados processados salvos com leadId: ${leadData.leadId} em ${LEADS_FILE}`);
+    await storage.appendLead(leadData);
+    console.log(`💾 Dados processados salvos com leadId: ${leadData.leadId}`);
 
     // Função para atualizar o lead no arquivo
     const updateLeadFile = async (status, crmData) => {
-      const leads = await fs.readJson(LEADS_FILE);
-      const leadIndex = leads.findIndex(l => l.leadId === leadData.leadId);
-      if (leadIndex !== -1) {
-        leads[leadIndex].status = status;
-        leads[leadIndex].crm = crmData;
-        await fs.writeJson(LEADS_FILE, leads, { spaces: 2 });
+      await storage.updateLead(leadData.leadId, {
+        status,
+        crm: crmData
+      });
         console.log(`🔄 Status do lead ${leadData.leadId} atualizado para '${status}'`);
-      }
     };
 
     // 4. --- Início da Interação com o CRM ---
@@ -336,7 +317,7 @@ app.post('/webhook/email/:slug', async (req, res) => {
 
 app.get('/api/leads', async (req, res) => {
   try {
-    const leads = await fs.readJson(LEADS_FILE);
+    const leads = await storage.readLeads();
     res.json(leads);
   } catch (error) {
     console.error('❌ Erro ao ler leads:', error);

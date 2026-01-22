@@ -1,0 +1,62 @@
+[
+  {
+    "id": "test_1",
+    "name": "Teste Storage",
+    "slug": "teste-storage"
+  },
+  {
+    "id": "c45e2739-7dfe-4111-a3e3-68af11bb4a88",
+    "name": "Generauto",
+    "slug": "generauto",
+    "status": "active",
+    "createdAt": "2026-01-22T20:55:00.777Z",
+    "credentials": {
+      "pitToken": "",
+      "locationId": ""
+    },
+    "checklist": [
+      {
+        "id": "1",
+        "label": "Integração criada",
+        "checked": true,
+        "status": "Done"
+      },
+      {
+        "id": "2",
+        "label": "Credenciais configuradas",
+        "checked": false,
+        "status": "Pending"
+      },
+      {
+        "id": "3",
+        "label": "Sub-conta criada",
+        "checked": false,
+        "status": "Pending"
+      },
+      {
+        "id": "4",
+        "label": "DNS configurado",
+        "checked": false,
+        "status": "Pending"
+      },
+      {
+        "id": "5",
+        "label": "Email de notificação",
+        "checked": false,
+        "status": "Pending"
+      },
+      {
+        "id": "6",
+        "label": "Automação ativada",
+        "checked": false,
+        "status": "Pending"
+      },
+      {
+        "id": "7",
+        "label": "Webhook recebendo dados",
+        "checked": false,
+        "status": "Pending"
+      }
+    ]
+  }
+]

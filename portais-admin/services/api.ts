@@ -1,4 +1,4 @@
-import { Lead } from '../types';
+import { Lead, Integration } from '../types';
 
 const API_URL = 'http://localhost:3434/api';
 
@@ -13,8 +13,8 @@ export const fetchLeads = async (): Promise<Lead[]> => {
     // Mapeia os dados do backend (leads.json) para o formato esperado pelo frontend (Lead interface)
     return data.map((item: any) => ({
       id: item.leadId,
-      integrationId: 'legacy', // Valor padrão, já que o backend não possui este campo por lead
-      integrationName: item.fonte_do_lead || 'Desconhecido',
+      integrationId: item.integrationId || 'legacy',
+      integrationName: item.integrationName || item.fonte_do_lead || 'Desconhecido',
       name: item.nome || 'Sem Nome',
       email: item.email || '',
       phone: item.telefone || '',
@@ -36,4 +36,40 @@ const mapStatus = (backendStatus: string): string => {
     'failed': 'Error'
   };
   return statusMap[backendStatus] || backendStatus;
+};
+
+// --- Métodos de Integração ---
+
+export const fetchIntegrations = async (): Promise<Integration[]> => {
+  try {
+    const response = await fetch(`${API_URL}/integrations`);
+    if (!response.ok) throw new Error('Falha ao buscar integrações');
+    return await response.json();
+  } catch (error) {
+    console.error('Erro em fetchIntegrations:', error);
+    return [];
+  }
+};
+
+export const createIntegration = async (data: { name: string; slug: string }): Promise<Integration> => {
+  const response = await fetch(`${API_URL}/integrations`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data),
+  });
+  if (!response.ok) {
+    const err = await response.json();
+    throw new Error(err.error || 'Falha ao criar integração');
+  }
+  return await response.json();
+};
+
+export const updateIntegration = async (id: string, data: Partial<Integration>): Promise<Integration> => {
+  const response = await fetch(`${API_URL}/integrations/${id}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data),
+  });
+  if (!response.ok) throw new Error('Falha ao atualizar integração');
+  return await response.json();
 };

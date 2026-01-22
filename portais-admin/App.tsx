@@ -2,7 +2,7 @@ import React from 'react';
 import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { Layout } from './components/Layout';
 import { Dashboard } from './pages/Dashboard';
-import { IntegrationsList } from './pages/IntegrationsList';
+import { Integrations } from './pages/Integrations';
 import { IntegrationDetail } from './pages/IntegrationDetail';
 import { WebhooksGlobal } from './pages/WebhooksGlobal';
 import { LeadsGlobal } from './pages/LeadsGlobal';
@@ -14,7 +14,7 @@ const App: React.FC = () => {
       <Layout>
         <Routes>
           <Route path="/" element={<Dashboard />} />
-          <Route path="/integrations" element={<IntegrationsList />} />
+          <Route path="/integrations" element={<Integrations />} />
           <Route path="/integrations/:id" element={<IntegrationDetail />} />
           <Route path="/webhooks" element={<WebhooksGlobal />} />
           <Route path="/leads" element={<LeadsGlobal />} />
