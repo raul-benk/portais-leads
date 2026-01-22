@@ -1,0 +1,17 @@
+[
+  {
+    "firstName": "Creuzeli",
+    "lastName": "Martins da Silva",
+    "email": "creuzelimartins1@gmail.com",
+    "phone": "(65) 99947-6652",
+    "source": "Mobiauto",
+    "tags": [
+      "email",
+      "lead-automatico"
+    ],
+    "customFields": {
+      "origem_integracao": "email-webhook"
+    },
+    "receivedAt": "2026-01-12T20:40:55.322Z"
+  }
+]

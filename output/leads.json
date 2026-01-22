@@ -1,0 +1,718 @@
+[
+  {
+    "leadId": "23740db7-a5c8-44d3-ada8-dd0f5ba09fc3",
+    "receivedAt": "2026-01-14T18:08:17.425Z",
+    "status": "received",
+    "nome": "Edmilson Silva Pereira",
+    "telefone": "(65) 99689-5075",
+    "email": "edmilsoncau2010@hotmail.com",
+    "fonte_do_lead": "iCarros",
+    "veiculo_interesse": "Chevrolet Onix Seminovo",
+    "placa": null,
+    "preco": null
+  },
+  {
+    "leadId": "b19bf7e9-1360-45ec-a614-5c7d71f1300a",
+    "receivedAt": "2026-01-14T19:17:44.830Z",
+    "status": "processed",
+    "nome": "Leonardo Faria",
+    "telefone": "+5565999907575",
+    "email": "leo_fariaorlandini@hotmail.com",
+    "fonte_do_lead": "Mobiauto",
+    "veiculo_interesse": "Fiat Strada Adventure 1.8 16V (Flex) 2018",
+    "placa": "QCM0204",
+    "preco": "73.900",
+    "crm": {
+      "contactId": "kjG8g4HRmnadh2OdI3b6",
+      "processedAt": "2026-01-14T19:17:45.965Z"
+    }
+  },
+  {
+    "leadId": "d0544917-5bed-4aed-8f3f-56bff1b17342",
+    "receivedAt": "2026-01-14T19:23:59.227Z",
+    "status": "processed",
+    "nome": "Eudes",
+    "telefone": "+5565999974171",
+    "email": "eudesvila@gmail.com",
+    "fonte_do_lead": "Mobiauto",
+    "veiculo_interesse": "Fiat Doblò Adventure 1.8 6L (Flex) 2017/2018",
+    "placa": "QNB5F65",
+    "preco": "58.900",
+    "crm": {
+      "contactId": "mXQ5125zvIdvaHfTrUEC",
+      "processedAt": "2026-01-14T19:24:00.174Z"
+    }
+  },
+  {
+    "leadId": "c952ed24-58f1-42ae-836b-a258c87484a6",
+    "receivedAt": "2026-01-14T19:41:23.707Z",
+    "status": "failed",
+    "nome": "Jose Cicero Ferreira Silva",
+    "telefone": "+5565996063228",
+    "email": "josecicero06111974@gmail.com",
+    "fonte_do_lead": "iCarros",
+    "veiculo_interesse": "Toyota Etios X Plus 1.5 (Flex) (Aut) 2020",
+    "placa": null,
+    "preco": "72.900",
+    "crm": {
+      "error": "{\"statusCode\":400,\"message\":\"This location does not allow duplicated contacts.\",\"meta\":{\"contactName\":\"José Cicero\",\"contactId\":\"9HogStWNgxUTX14biTrL\",\"matchingField\":\"phone\"},\"traceId\":\"8c638415-8642-4b69-a94d-d98bee054a94\"}",
+      "processedAt": "2026-01-14T19:41:24.071Z"
+    }
+  },
+  {
+    "leadId": "af842a2d-dfa5-40ed-b029-72ebe0f69ac0",
+    "receivedAt": "2026-01-14T19:47:45.709Z",
+    "status": "failed",
+    "nome": "Jose Cicero Ferreira Silva",
+    "telefone": "+5565996063228",
+    "email": "josecicero06111974@gmail.com",
+    "fonte_do_lead": "iCarros",
+    "veiculo_interesse": "Toyota Etios X Plus 1.5 (Flex) (Aut) 2020",
+    "placa": null,
+    "preco": "72.900",
+    "crm": {
+      "error": "{\"statusCode\":400,\"message\":\"This location does not allow duplicated contacts.\",\"meta\":{\"contactName\":\"José Cicero\",\"contactId\":\"9HogStWNgxUTX14biTrL\",\"matchingField\":\"phone\"},\"traceId\":\"62350670-0ceb-4c20-af35-fa6913d25f6a\"}",
+      "processedAt": "2026-01-14T19:47:46.011Z"
+    }
+  },
+  {
+    "leadId": "4d912b16-7683-462f-bb11-bf4979b2e1b2",
+    "receivedAt": "2026-01-14T19:53:34.432Z",
+    "status": "processed",
+    "nome": "Jose Cicero Ferreira Silva",
+    "telefone": "+5565996063228",
+    "email": "josecicero06111974@gmail.com",
+    "fonte_do_lead": "iCarros",
+    "veiculo_interesse": "Toyota Etios X Plus 1.5 (Flex) (Aut) 2020",
+    "placa": null,
+    "preco": "72.900",
+    "crm": {
+      "contactId": "9HogStWNgxUTX14biTrL",
+      "processedAt": "2026-01-14T19:53:35.663Z"
+    }
+  },
+  {
+    "leadId": "887d2817-35e1-4a2d-b750-b58a76d5345b",
+    "receivedAt": "2026-01-14T20:23:49.525Z",
+    "status": "processed",
+    "nome": "Creuzeli Martins da Silva",
+    "telefone": "+5565999476652",
+    "email": "creuzelimartins1@gmail.com",
+    "fonte_do_lead": "Mobiauto",
+    "veiculo_interesse": "Honda NXR 160 Bros ESDD 2021",
+    "placa": "RAR6A82",
+    "preco": "18.100",
+    "crm": {
+      "contactId": "Gxne2SOC6FUCwczAQfrH",
+      "processedAt": "2026-01-14T20:23:50.448Z"
+    }
+  },
+  {
+    "leadId": "af693aa8-0f75-438a-b85c-122772aae77b",
+    "receivedAt": "2026-01-14T21:54:27.303Z",
+    "status": "processed",
+    "nome": "MANOEL WESTPHALEN VESCIA",
+    "telefone": "+5565999028941",
+    "email": "mwvescia@gmail.com",
+    "fonte_do_lead": "iCarros",
+    "veiculo_interesse": "Peugeot 207 SW Escapade 1.6 16V (flex) 2010",
+    "placa": "npc7f21",
+    "preco": "17.900",
+    "crm": {
+      "contactId": "kJlBktXwAjRg570T17gy",
+      "processedAt": "2026-01-14T21:54:28.336Z"
+    }
+  },
+  {
+    "leadId": "31ae7c6d-8710-4703-810e-fa2bda17b61d",
+    "receivedAt": "2026-01-15T00:45:57.288Z",
+    "status": "processed",
+    "nome": "Lourival da Silva",
+    "telefone": "+5565999029816",
+    "email": "lourivalsilva05146@gmail.com",
+    "fonte_do_lead": "napista.com.br",
+    "veiculo_interesse": "FIAT STRADA 1.3 CABINE DUPLA FREEDOM",
+    "placa": "RAP4E12",
+    "preco": "71.900",
+    "crm": {
+      "contactId": "AKmTjLxnBOcsp1gBnW85",
+      "processedAt": "2026-01-15T00:45:58.431Z"
+    }
+  },
+  {
+    "leadId": "bbed0a6b-3ceb-44c1-bcc3-651906eed36d",
+    "receivedAt": "2026-01-15T10:27:28.822Z",
+    "status": "processed",
+    "nome": "Cleberson Da Silva",
+    "telefone": "+5593991354885",
+    "email": "clebersoncleberson970@gmail.com",
+    "fonte_do_lead": "iCarros",
+    "veiculo_interesse": "Toyota Hilux 3.0 TDI 4x4 CD SR 2014",
+    "placa": "obq0i53",
+    "preco": "110.900",
+    "crm": {
+      "contactId": "GdrXd6ijUyHfcE35b8cA",
+      "processedAt": "2026-01-15T10:27:29.966Z"
+    }
+  },
+  {
+    "leadId": "5c713b65-39ce-4592-8c3d-7af10e20ab6c",
+    "receivedAt": "2026-01-15T18:42:27.863Z",
+    "status": "processed",
+    "nome": "Edmilso Francisco Lopes",
+    "telefone": "+5565999508103",
+    "email": "ed26890@gmail.com",
+    "fonte_do_lead": "napista.com.br",
+    "veiculo_interesse": "PEUGEOT 207 1.4 FLEX QUIKSILVER",
+    "placa": "NPC7F21",
+    "preco": "17.900",
+    "crm": {
+      "contactId": "f6Y3HNrWNsXqYJ5ZXBaH",
+      "processedAt": "2026-01-15T18:42:28.955Z"
+    }
+  },
+  {
+    "leadId": "8790fffb-644a-49fe-bc31-cf785afed1b5",
+    "receivedAt": "2026-01-16T11:15:51.565Z",
+    "status": "processed",
+    "nome": "Cleberson Da Silva",
+    "telefone": "+5593991354885",
+    "email": "clebersoncleberson970@gmail.com",
+    "fonte_do_lead": "iCarros",
+    "veiculo_interesse": "Toyota Hilux 3.0 TDI 4x4 CD SR 2014",
+    "placa": "obq0i53",
+    "preco": "110.900",
+    "crm": {
+      "contactId": "GdrXd6ijUyHfcE35b8cA",
+      "processedAt": "2026-01-16T11:15:52.740Z"
+    }
+  },
+  {
+    "leadId": "2b15a6c0-6d21-452c-a696-3f12cdec5e8c",
+    "receivedAt": "2026-01-16T14:06:40.199Z",
+    "status": "processed",
+    "nome": "Helio Pereira da Silva",
+    "telefone": "+5565996382419",
+    "email": "heliopereira222@outlook.com",
+    "fonte_do_lead": "iCarros",
+    "veiculo_interesse": "Chevrolet Onix Seminovo",
+    "placa": null,
+    "preco": null,
+    "crm": {
+      "contactId": "gAfpJ0cZ3PP80T9JjzXD",
+      "processedAt": "2026-01-16T14:06:41.396Z"
+    }
+  },
+  {
+    "leadId": "d5550a76-8086-4c7c-b996-054cf395e7a0",
+    "receivedAt": "2026-01-16T14:34:44.517Z",
+    "status": "processed",
+    "nome": "Michele Maria De Santana",
+    "telefone": "+5587981200234",
+    "email": "rykky.putao@gmail.com",
+    "fonte_do_lead": "napista.com.br",
+    "veiculo_interesse": "FIAT ARGO 1.0",
+    "placa": "JBN5H57",
+    "preco": "64.900",
+    "crm": {
+      "contactId": "m78OU7I3JwHrwmhrELuZ",
+      "processedAt": "2026-01-16T14:34:45.349Z"
+    }
+  },
+  {
+    "leadId": "c01f2e40-7dfd-4d66-9e07-6635b8e0dff8",
+    "receivedAt": "2026-01-16T14:39:38.172Z",
+    "status": "processed",
+    "nome": "Michele Maria De Santana",
+    "telefone": "+5587981200234",
+    "email": "rykky.putao@gmail.com",
+    "fonte_do_lead": "napista.com.br",
+    "veiculo_interesse": "PEUGEOT 207 1.4 FLEX QUIKSILVER",
+    "placa": "NPC7F21",
+    "preco": "17.900",
+    "crm": {
+      "contactId": "m78OU7I3JwHrwmhrELuZ",
+      "processedAt": "2026-01-16T14:39:39.197Z"
+    }
+  },
+  {
+    "leadId": "9e24cc40-e0b3-483d-8b57-72f5f0e24ead",
+    "receivedAt": "2026-01-16T16:40:55.139Z",
+    "status": "processed",
+    "nome": "José Castro Silva Neto",
+    "telefone": "+5599992049376",
+    "email": "josesilvacastro61@gmail.com",
+    "fonte_do_lead": "iCarros",
+    "veiculo_interesse": "Toyota Hilux 3.0 TDI 4x4 CD SR 2014",
+    "placa": "obq0i53",
+    "preco": "110.900",
+    "crm": {
+      "contactId": "imLvxFsLYNr00FGgoJzE",
+      "processedAt": "2026-01-16T16:40:56.167Z"
+    }
+  },
+  {
+    "leadId": "145dec02-257e-44d5-a7dc-e4960e455409",
+    "receivedAt": "2026-01-16T17:05:07.266Z",
+    "status": "processed",
+    "nome": "José Arlindo Gregório dos Santos",
+    "telefone": "+5565993066741",
+    "email": "rineidezal@gmail.com",
+    "fonte_do_lead": "napista.com.br",
+    "veiculo_interesse": "PEUGEOT 207 1.4 FLEX QUIKSILVER",
+    "placa": "NPC7F21",
+    "preco": "17.900",
+    "crm": {
+      "contactId": "zDsbzgHc32DwYcIiqdP9",
+      "processedAt": "2026-01-16T17:05:08.251Z"
+    }
+  },
+  {
+    "leadId": "785d5b5d-e1b7-40cf-9412-d120b166c271",
+    "receivedAt": "2026-01-16T17:05:47.784Z",
+    "status": "processed",
+    "nome": "Rineide Gregório Freitas dos Santos",
+    "telefone": "+5565993066741",
+    "email": "rineidezal@gmail.com",
+    "fonte_do_lead": "napista.com.br",
+    "veiculo_interesse": "PEUGEOT 207 1.4 FLEX QUIKSILVER",
+    "placa": "NPC7F21",
+    "preco": "17.900",
+    "crm": {
+      "contactId": "zDsbzgHc32DwYcIiqdP9",
+      "processedAt": "2026-01-16T17:05:48.812Z"
+    }
+  },
+  {
+    "leadId": "0ba9906a-796c-4aa7-b1fe-ad1336265355",
+    "receivedAt": "2026-01-16T23:15:49.956Z",
+    "status": "processed",
+    "nome": "Oacil francisco da silva",
+    "telefone": "+5565993069804",
+    "email": "oacilfrancisco78@gmail.com",
+    "fonte_do_lead": "napista.com.br",
+    "veiculo_interesse": "FIAT ARGO 1.0",
+    "placa": "JBN5H57",
+    "preco": "64.900",
+    "crm": {
+      "contactId": "hlXXC9B0P4Kyf2eBNdCr",
+      "processedAt": "2026-01-16T23:15:51.231Z"
+    }
+  },
+  {
+    "leadId": "ecba2d4d-3d7d-418a-b170-19e12352f5d7",
+    "receivedAt": "2026-01-17T12:26:07.552Z",
+    "status": "failed",
+    "nome": "Michele Maria De Santana",
+    "telefone": "+5587981200234",
+    "email": null,
+    "fonte_do_lead": "napista.com.br",
+    "veiculo_interesse": "PEUGEOT 207 1.4 FLEX QUIKSILVER",
+    "placa": null,
+    "preco": "17.900",
+    "crm": {
+      "error": "{\"message\":[\"email must be an email\"],\"error\":\"Unprocessable Entity\",\"statusCode\":422,\"traceId\":\"d535f264-5015-40ca-88a6-c8ff1caa02c3\"}",
+      "processedAt": "2026-01-17T12:26:08.063Z"
+    }
+  },
+  {
+    "leadId": "aee0fa20-e938-40d6-9584-95d958760d7b",
+    "receivedAt": "2026-01-17T16:55:51.748Z",
+    "status": "processed",
+    "nome": "Ronido Rodrigues Gusmao",
+    "telefone": "+556559923050",
+    "email": "ronidorodriguesgusmao@gmail.com",
+    "fonte_do_lead": "napista.com.br",
+    "veiculo_interesse": "FIAT ARGO 1.0",
+    "placa": "OPP2C77",
+    "preco": "76.900",
+    "crm": {
+      "contactId": "dSSCnhqss3BpINdZzrmn",
+      "processedAt": "2026-01-17T16:55:53.506Z"
+    }
+  },
+  {
+    "leadId": "afedd83f-7a23-40a4-a348-5aa0fb4f22f5",
+    "receivedAt": "2026-01-17T17:49:12.103Z",
+    "status": "processed",
+    "nome": "EZEQUIEL PEREIRA NUNES",
+    "telefone": "+5565981394605",
+    "email": "ezequielpereiranunes@82gmeil.com",
+    "fonte_do_lead": "napista.com.br",
+    "veiculo_interesse": "FIAT ARGO 1.0",
+    "placa": "OPP2C77",
+    "preco": "76.900",
+    "crm": {
+      "contactId": "NYxpKizYdJOvaS0cxZ7m",
+      "processedAt": "2026-01-17T17:49:13.005Z"
+    }
+  },
+  {
+    "leadId": "e31b5d17-f466-4314-ba79-7b1f10aecc58",
+    "receivedAt": "2026-01-17T20:02:23.834Z",
+    "status": "processed",
+    "nome": "Carlos Malaquias Macedo Nunes",
+    "telefone": "+5566992609935",
+    "email": "carlosmacedo.macedonunes@outlook.com",
+    "fonte_do_lead": "napista.com.br",
+    "veiculo_interesse": "FIAT DOBLO 1.8 ADVENTURE",
+    "placa": "QNB5F65",
+    "preco": "58.900",
+    "crm": {
+      "contactId": "Z2z0sqHErjnUDtgNcR9Q",
+      "processedAt": "2026-01-17T20:02:25.084Z"
+    }
+  },
+  {
+    "leadId": "576a9cbf-404e-42f8-8eb6-8fc54b3913f5",
+    "receivedAt": "2026-01-18T11:35:25.132Z",
+    "status": "processed",
+    "nome": "LEYDIANE LACERDA SANTOS",
+    "telefone": "+5569999847668",
+    "email": "leydimtv@gmail.com",
+    "fonte_do_lead": "Mobiauto",
+    "veiculo_interesse": "Peugeot 207 SW Escapade 1.6 16V (flex) 2009/2010",
+    "placa": "NPC7F21",
+    "preco": "17.900",
+    "crm": {
+      "contactId": "eNPs1zDZGs1hqILRpP1k",
+      "processedAt": "2026-01-18T11:35:26.382Z"
+    }
+  },
+  {
+    "leadId": "f2de1e54-9553-4058-a5be-a283dada0bfd",
+    "receivedAt": "2026-01-19T19:04:03.140Z",
+    "status": "processed",
+    "nome": "ELTANIA LIRA DE SOUSA",
+    "telefone": "+5565981185831",
+    "email": "eltanialira1@gmail.com",
+    "fonte_do_lead": "napista.com.br",
+    "veiculo_interesse": "TOYOTA HILUX 3.0 TDI CD SR AUTO 4WD",
+    "placa": "OBQ0I53",
+    "preco": "110.900",
+    "crm": {
+      "contactId": "mfQnko8mniMqBbTiV8hd",
+      "processedAt": "2026-01-19T19:04:04.504Z"
+    }
+  },
+  {
+    "leadId": "c752b621-f428-4e7b-8c2e-83bd3e23696b",
+    "receivedAt": "2026-01-19T19:52:19.400Z",
+    "status": "processed",
+    "nome": "emilly aparecida fernandes",
+    "telefone": "+5565992505801",
+    "email": "emillyfernandess065@gmail.com",
+    "fonte_do_lead": "Mobiauto",
+    "veiculo_interesse": "Toyota Corolla 2.0 XEi Multi-Drive S (Flex) 2014/2015",
+    "placa": "QBD0F87",
+    "preco": "89.900",
+    "crm": {
+      "contactId": "WLue2Ud0cbJYlzP0cFsS",
+      "processedAt": "2026-01-19T19:52:20.205Z"
+    }
+  },
+  {
+    "leadId": "24bb6d16-f6b4-4c8f-b308-e970c8c20e29",
+    "receivedAt": "2026-01-19T20:32:26.184Z",
+    "status": "processed",
+    "nome": "Juarci Felisberto",
+    "telefone": "+5565999714730",
+    "email": "gauchinhotur@hotmail.com",
+    "fonte_do_lead": "Mobiauto",
+    "veiculo_interesse": "Fiat Doblò Adventure 1.8 6L (Flex) 2017/2018",
+    "placa": "QNB5F65",
+    "preco": "58.900",
+    "crm": {
+      "contactId": "auXSw0bDFIPLURSGWAoF",
+      "processedAt": "2026-01-19T20:32:27.352Z"
+    }
+  },
+  {
+    "leadId": "e6ebdba0-fe36-4c28-9454-37aeac4f063b",
+    "receivedAt": "2026-01-20T18:09:37.261Z",
+    "status": "processed",
+    "nome": "MARCOS APARECIDO SOARES",
+    "telefone": "+5565999548007",
+    "email": "marcostga2019@gmail.com",
+    "fonte_do_lead": "iCarros",
+    "veiculo_interesse": "Peugeot 207 SW Escapade 1.6 16V (flex) 2010",
+    "placa": "npc7f21",
+    "preco": "17.900",
+    "crm": {
+      "contactId": "Fed3ncd3iItM53L2Utbb",
+      "processedAt": "2026-01-20T18:09:38.432Z"
+    }
+  },
+  {
+    "leadId": "457111a0-06d4-4638-8745-9f15a50eb02e",
+    "receivedAt": "2026-01-20T23:16:01.789Z",
+    "status": "processed",
+    "nome": "Juliana Osowski",
+    "telefone": "+5566981300890",
+    "email": "julianaosowski@gmail.com",
+    "fonte_do_lead": "Mobiauto",
+    "veiculo_interesse": "Fiat Argo 1.0 (Flex) 2022/2023",
+    "placa": "JBN5H57",
+    "preco": "64.900",
+    "crm": {
+      "contactId": "cUfrw3pgietFRAneTOWf",
+      "processedAt": "2026-01-20T23:16:03.072Z"
+    }
+  },
+  {
+    "leadId": "99f5f059-5fa0-42de-8ffd-4234920c8223",
+    "receivedAt": "2026-01-20T23:30:49.607Z",
+    "status": "processed",
+    "nome": "Juliana Osowski",
+    "telefone": "+5566981300890",
+    "email": "julianaosowski@gmail.com",
+    "fonte_do_lead": "Mobiauto",
+    "veiculo_interesse": "Fiat Argo 1.0 (Flex) 2022/2023",
+    "placa": "JBN5H57",
+    "preco": "64.900",
+    "crm": {
+      "contactId": "cUfrw3pgietFRAneTOWf",
+      "processedAt": "2026-01-20T23:30:50.481Z"
+    }
+  },
+  {
+    "leadId": "e12ae930-19fb-4f91-b756-b2dd54235823",
+    "receivedAt": "2026-01-21T09:46:43.067Z",
+    "status": "processed",
+    "nome": "Vanessa Lourenço pereira",
+    "telefone": "+5566981178713",
+    "email": "lopervanessa5@gmail.com",
+    "fonte_do_lead": "iCarros",
+    "veiculo_interesse": "Chevrolet Onix 1.0 2023",
+    "placa": "qzp2j94",
+    "preco": "69.900",
+    "crm": {
+      "contactId": "M82UDvVfWEwYkNJn03CN",
+      "processedAt": "2026-01-21T09:46:44.336Z"
+    }
+  },
+  {
+    "leadId": "fc3352e4-482c-434f-a626-62e952c0c72f",
+    "receivedAt": "2026-01-21T09:48:26.714Z",
+    "status": "processed",
+    "nome": "Vanessa Lourenço pereira",
+    "telefone": "+5566981158713",
+    "email": "lopervanessa5@gmail.com",
+    "fonte_do_lead": "iCarros",
+    "veiculo_interesse": "Chevrolet Onix 1.0 2023",
+    "placa": "qzp2j94",
+    "preco": "69.900",
+    "crm": {
+      "contactId": "M82UDvVfWEwYkNJn03CN",
+      "processedAt": "2026-01-21T09:48:27.879Z"
+    }
+  },
+  {
+    "leadId": "0aeb5f02-69a9-4487-be7e-1604e3c7f2ae",
+    "receivedAt": "2026-01-21T09:52:25.788Z",
+    "status": "processed",
+    "nome": "Sonia Camargo Lourenço",
+    "telefone": "+5566981158713",
+    "email": "lopervanessa5@gmail.com",
+    "fonte_do_lead": "iCarros",
+    "veiculo_interesse": "Peugeot 207 SW Escapade 1.6 16V (flex) 2010",
+    "placa": "npc7f21",
+    "preco": "17.900",
+    "crm": {
+      "contactId": "M82UDvVfWEwYkNJn03CN",
+      "processedAt": "2026-01-21T09:52:26.936Z"
+    }
+  },
+  {
+    "leadId": "62f53027-3632-4857-b229-ed428c922059",
+    "receivedAt": "2026-01-21T13:57:11.212Z",
+    "status": "processed",
+    "nome": "JOSEILDO OSORIO DA SILVA",
+    "telefone": "+5565998154622",
+    "email": "josuelsilva88@gmail.com",
+    "fonte_do_lead": "napista.com.br",
+    "veiculo_interesse": "HYUNDAI CRETA 1.0 T-GDI COMFORT AUTO",
+    "placa": "RAX9G83",
+    "preco": "96.900",
+    "crm": {
+      "contactId": "wXCAFWY7EvRzdh3W37KM",
+      "processedAt": "2026-01-21T13:57:12.354Z"
+    }
+  },
+  {
+    "leadId": "dbaa83df-c73f-45cb-81f0-006d25f9b4ad",
+    "receivedAt": "2026-01-21T14:07:01.933Z",
+    "status": "processed",
+    "nome": "JOELMA GENERINA DA SILVA",
+    "telefone": "+5565998154622",
+    "email": "josuelsilva88@gmail.com",
+    "fonte_do_lead": "napista.com.br",
+    "veiculo_interesse": "HYUNDAI CRETA 1.0 T-GDI COMFORT AUTO",
+    "placa": "RAX9G83",
+    "preco": "96.900",
+    "crm": {
+      "contactId": "wXCAFWY7EvRzdh3W37KM",
+      "processedAt": "2026-01-21T14:07:03.045Z"
+    }
+  },
+  {
+    "leadId": "e782a5eb-dee0-4b12-a61e-007d7b237207",
+    "receivedAt": "2026-01-21T14:17:47.204Z",
+    "status": "processed",
+    "nome": "ANGELICA DE FREITAS DELFINO",
+    "telefone": "+5565998154622",
+    "email": "josuelsilva88@gmail.com",
+    "fonte_do_lead": "napista.com.br",
+    "veiculo_interesse": "HYUNDAI CRETA 1.0 T-GDI COMFORT AUTO",
+    "placa": "RAX9G83",
+    "preco": "96.900",
+    "crm": {
+      "contactId": "wXCAFWY7EvRzdh3W37KM",
+      "processedAt": "2026-01-21T14:17:48.266Z"
+    }
+  },
+  {
+    "leadId": "a364d677-b194-479f-b221-24e2f937c13d",
+    "receivedAt": "2026-01-21T14:44:39.986Z",
+    "status": "processed",
+    "nome": "Jessica de macedo",
+    "telefone": "+5565996138014",
+    "email": "Jmacedojessica@gmail.com",
+    "fonte_do_lead": "iCarros",
+    "veiculo_interesse": "Fiat Argo 1.0 2023",
+    "placa": "jbn5h57",
+    "preco": "64.900",
+    "crm": {
+      "contactId": "dg1jZQKhvxT2w5coGjER",
+      "processedAt": "2026-01-21T14:44:40.973Z"
+    }
+  },
+  {
+    "leadId": "bd44ff2d-4e56-4eb6-9faa-a1dab8db10aa",
+    "receivedAt": "2026-01-21T18:24:35.747Z",
+    "status": "processed",
+    "nome": "Iaggo Cavaliere",
+    "telefone": "+5565998506310",
+    "email": "iaggo_cavaliere@outlook.com",
+    "fonte_do_lead": "Mobiauto",
+    "veiculo_interesse": "Peugeot 207 SW Escapade 1.6 16V (flex) 2009/2010",
+    "placa": "NPC7F21",
+    "preco": "17.900",
+    "crm": {
+      "contactId": "1lTaqi6M3cWST1t3PviI",
+      "processedAt": "2026-01-21T18:24:37.976Z"
+    }
+  },
+  {
+    "leadId": "3170a62c-fa9d-406d-b981-dcd5dd7288e8",
+    "receivedAt": "2026-01-21T18:40:58.283Z",
+    "status": "processed",
+    "nome": "Raul Behnke",
+    "telefone": "+5547997684618",
+    "email": "raulbehnkes@gmail.com",
+    "fonte_do_lead": "mobiauto",
+    "veiculo_interesse": "Peugeot 207 SW Escapade 1.6 16V (flex) 2009/2010",
+    "placa": "NPC7F21",
+    "preco": "17900",
+    "crm": {
+      "contactId": "zDQqqpU3RAzYfG86B0VH",
+      "processedAt": "2026-01-21T18:40:59.473Z"
+    }
+  },
+  {
+    "leadId": "ea7b65f9-fef0-420e-9f3c-3076d81c630e",
+    "receivedAt": "2026-01-21T18:44:30.018Z",
+    "status": "processed",
+    "nome": "Raul Behnke Leal",
+    "telefone": "+5547997684618",
+    "email": "raulbehnkee@gmail.com",
+    "fonte_do_lead": "iCarros",
+    "veiculo_interesse": "Chevrolet Onix 1.0 2023",
+    "placa": "qzp2j94",
+    "preco": "69.900",
+    "crm": {
+      "contactId": "ctVUSmaqtahLkBs9UxIm",
+      "processedAt": "2026-01-21T18:44:31.238Z"
+    }
+  },
+  {
+    "leadId": "38e5bf65-8cb7-4f74-82f2-8ee1b29e0faa",
+    "receivedAt": "2026-01-21T18:47:20.459Z",
+    "status": "processed",
+    "nome": "Silmar de Souza flores",
+    "telefone": "+5565981372170",
+    "email": "silmarflores1992@gmail.com",
+    "fonte_do_lead": "iCarros",
+    "veiculo_interesse": "Chevrolet Onix 1.0 2023",
+    "placa": "qzp2j94",
+    "preco": "69.900",
+    "crm": {
+      "contactId": "5YgsBmvFvPNzJjdgJelp",
+      "processedAt": "2026-01-21T18:47:21.823Z"
+    }
+  },
+  {
+    "leadId": "2e591d74-cba2-49e4-84d4-57054551986e",
+    "receivedAt": "2026-01-22T00:51:18.208Z",
+    "status": "processed",
+    "nome": "VICTOR EUGENIO GOES OLIVEIRA PINTO",
+    "telefone": "+5569992354691",
+    "email": "vitor123goes@gmail.com",
+    "fonte_do_lead": "Mobiauto",
+    "veiculo_interesse": "Peugeot 207 SW Escapade 1.6 16V (flex) 2009/2010",
+    "placa": "NPC7F21",
+    "preco": "17.900",
+    "crm": {
+      "contactId": "mVGINwgmUid3nRosfH7h",
+      "processedAt": "2026-01-22T00:51:19.659Z"
+    }
+  },
+  {
+    "leadId": "770c46d8-9769-4510-a011-60f73f1c7cf2",
+    "receivedAt": "2026-01-22T12:26:06.090Z",
+    "status": "failed",
+    "nome": "JOSEILDO OSORIO DA SILVA",
+    "telefone": "+5565998154622",
+    "email": null,
+    "fonte_do_lead": "napista.com.br",
+    "veiculo_interesse": "HYUNDAI CRETA 1.0 T-GDI COMFORT AUTO",
+    "placa": null,
+    "preco": "96.900",
+    "crm": {
+      "error": "{\"message\":[\"email must be an email\"],\"error\":\"Unprocessable Entity\",\"statusCode\":422,\"traceId\":\"963ab8d3-f0fc-48d9-bbf4-bed6d4eb5510\"}",
+      "processedAt": "2026-01-22T12:26:06.542Z"
+    }
+  },
+  {
+    "leadId": "6c1b557a-c71c-4b05-97ce-7d0a9adda308",
+    "receivedAt": "2026-01-22T12:26:31.032Z",
+    "status": "failed",
+    "nome": "JOELMA GENERINA DA SILVA",
+    "telefone": "+5565998154622",
+    "email": null,
+    "fonte_do_lead": "napista.com.br",
+    "veiculo_interesse": "HYUNDAI CRETA 1.0 T-GDI COMFORT AUTO",
+    "placa": null,
+    "preco": "96.900",
+    "crm": {
+      "error": "{\"message\":[\"email must be an email\"],\"error\":\"Unprocessable Entity\",\"statusCode\":422,\"traceId\":\"fa3dd93b-e488-4cf7-8caa-add9c0551bf5\"}",
+      "processedAt": "2026-01-22T12:26:31.575Z"
+    }
+  },
+  {
+    "leadId": "19df57db-abd6-4c34-9141-2ccbd32d6642",
+    "receivedAt": "2026-01-22T12:27:09.553Z",
+    "status": "failed",
+    "nome": "ANGELICA DE FREITAS DELFINO",
+    "telefone": "+5565998154622",
+    "email": null,
+    "fonte_do_lead": "napista.com.br",
+    "veiculo_interesse": "HYUNDAI CRETA 1.0 T-GDI COMFORT AUTO",
+    "placa": null,
+    "preco": "96.900",
+    "crm": {
+      "error": "{\"message\":[\"email must be an email\"],\"error\":\"Unprocessable Entity\",\"statusCode\":422,\"traceId\":\"0baee493-e221-4cc8-9d20-d661115ad46e\"}",
+      "processedAt": "2026-01-22T12:27:10.006Z"
+    }
+  }
+]

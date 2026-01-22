@@ -1,0 +1,65 @@
+{
+  "id": "xY8HsWc9Avf68LORsPK5",
+  "name": "Raul Behnke - Amarok",
+  "monetaryValue": 0,
+  "pipelineId": "zZrlKDUQrTCcfZDQwM7C",
+  "pipelineStageId": "cf2a63ab-3579-438c-ab49-752a7ae18d96",
+  "assignedTo": "aUMPSoVeh7zmSaZJI95A",
+  "status": "open",
+  "source": "WHATSAPP",
+  "lastStatusChangeAt": "2025-12-27T23:59:51.387Z",
+  "lastStageChangeAt": "2025-12-27T23:59:51.387Z",
+  "createdAt": "2025-12-27T23:59:51.387Z",
+  "updatedAt": "2026-01-08T19:31:18.131Z",
+  "contactId": "LpHftWV9jHzDriS09CpX",
+  "isAttribute": false,
+  "internalSource": {
+    "channel": "APP",
+    "source": "WEB_USER",
+    "apiVersion": "2021-07-28",
+    "id": "vDQvfVpBUV3Vh1NPqg9Q",
+    "type": "CREATED"
+  },
+  "locationId": "cgrcdDk6fuaoP5KQ7scA",
+  "lastActionDate": "2026-01-08T19:24:46.128Z",
+  "indexVersion": 3,
+  "customFields": [
+    {
+      "id": "qQp6igwONR3mAYCQJrao",
+      "fieldValue": "Vendedor 2"
+    },
+    {
+      "id": "58UKdfAhSLJ2QuPoEPu0",
+      "fieldValue": "Tipo de Oportunidade"
+    },
+    {
+      "fieldValue": "Veículo de Interesse",
+      "id": "MFmWzuig3M2CoRPOgr7T"
+    },
+    {
+      "fieldValue": "Status de Crédito",
+      "id": "75vFp1EICA1PCZgkUCSQ"
+    },
+    {
+      "id": "KmT56Is6DrePLfwU8CYp",
+      "fieldValue": "Placa do Veículo Desejado"
+    },
+    {
+      "fieldValue": "Mensagem",
+      "id": "xbmeg8BTFELaXyCJsMrK"
+    }
+  ],
+  "followers": [
+    "OcR33ti8EeBzjvdGfjJa"
+  ],
+  "contact": {
+    "id": "LpHftWV9jHzDriS09CpX",
+    "name": "Raul Behnke",
+    "companyName": "Teste",
+    "email": "behnkeraul@gmail.com",
+    "phone": "+5547997684618",
+    "tags": [],
+    "assignedTo": "OcR33ti8EeBzjvdGfjJa",
+    "followers": []
+  }
+}

@@ -1,0 +1,188 @@
+[
+  {
+    "receivedAt": "2026-01-12T21:29:40.428Z",
+    "Placa Veículo Desejado": "Placa do Veículo Desejado",
+    "Score do lead": "Score do Lead",
+    "CPF/CNPJ": "CPF/CNPJ",
+    "Pessoa Física/Juridica": "Física",
+    "Telefone Residencial": "",
+    "Sexo": "Masculino",
+    "Última Compra": "",
+    "Veículo de Interesse": "Veículo de Interesse",
+    "Nome da Mãe": "Simônica",
+    "Apelido": "Apelido",
+    "Tipo de compra": "Financiamento",
+    "Cargo": "ZOI",
+    "Status de Crédito": "Status de Crédito",
+    "Mensagem": "Mensagem",
+    "RG": "RG",
+    "url video": "",
+    "Veículos Adquiridos": "",
+    "Grupos": "Consórcio",
+    "contact_id": "LpHftWV9jHzDriS09CpX",
+    "first_name": "Raul",
+    "last_name": "Behnke",
+    "full_name": "Raul Behnke",
+    "email": "behnkeraul@gmail.com",
+    "phone": "+5547997684618",
+    "tags": "",
+    "country": "BR",
+    "date_created": "2025-12-26T17:06:48.493Z",
+    "company_name": "Teste",
+    "date_of_birth": "2002-04-21T00:00:00.000Z",
+    "contact_source": "WHATSAPP",
+    "full_address": "",
+    "contact_type": "lead",
+    "location": {
+      "name": "TOP CAR VEÍCULOS",
+      "address": "Av. Ismael José do Nascimento, 2065 - W - Jardim Acacia",
+      "city": "Tangará da Serra",
+      "state": "Mato Grosso",
+      "country": "BR",
+      "postalCode": "78300-001",
+      "fullAddress": "Av. Ismael José do Nascimento, 2065 - W - Jardim Acacia, Tangará da Serra Mato Grosso 78300-001",
+      "id": "cgrcdDk6fuaoP5KQ7scA"
+    },
+    "user": {
+      "firstName": "Teste",
+      "lastName": "da ZOI",
+      "email": "notificacoes@topcar.appzoi.com",
+      "phone": "+5547997684618"
+    },
+    "message": {
+      "body": "mobiauto\n[https://image1.mobiauto.com.br/images/api/images/v1.0/23841992]https://app.zoitech.com.br/v2/location/cgrcdDk6fuaoP5KQ7scA/conversations/conversations/www.mobiauto.com.br\n\n\nNOVA MENSAGEM RECEBIDA\n\nOlá, TopCar Multimarcas LtdaVocê recebeu uma nova mensagem para o anúncio:Honda CG 125 Fan ES 2011/2012 (placa: OBF8I76)R$ 9.000\n\nresponder [https://mobigestor.mobiauto.com.br/mobigestor/48633/proposta/62441786]\n\nver anúncio [https://www.mobiauto.com.br/details/23005547]\n\n(cód: 23005547 | Anúncio 0km: false)\n\n Informações do cliente\n\nNome\n\nThaiz de Souza\n\nE-mail\n\nthaizdesouza342@gmail.com [thaizdesouza342@gmail.com]\n\nTelefone\n\n66992123187 Mensagem“null.Cliente fez uma simulação de financiamento no veículo Honda CG 125 Fan ES 2012 OBF8I76 R$ 9.000”\n\nresponder [https://mobigestor.mobiauto.com.br/mobigestor/48633/proposta/62441786]\n\nEm caso de dúvidas entre em contato através do email atendimento@mobiauto.com.brfacebook\n[https://marketing-image-production.s3.amazonaws.com/uploads/f9ed9527b83c90bd0a716bde2131ee653893abfb60467f255e44835675ee8ecac6da4530aded3f512ae6f7e8ef775b54cf954c2e51b62f744c30438b4b68be3a.png]https://www.facebook.com/mobiautoBr/ instagram\n[https://marketing-image-production.s3.amazonaws.com/uploads/1d54522dff5df2e6dce6aff1658997e0a244acfc9429351e9fc4b253154b40409802fbfd7fdf31bd9f388743f78228ef6aadceeb25d196eb69474d44882fea6b.png]https://www.instagram.com/mobiautobr/ youtube\n[https://marketing-image-production.s3.amazonaws.com/uploads/4e90fe3753392a8b55bb98a5ea5468466b9a89a165f914a935a8cd2cb537222f166b42538f138ef59d87e35372ffc27fe15c333fd32bdc93a58ffeb5d9cf184e.png]https://www.youtube.com/channel/UCRVVwLuRdxcSGluuYWWOTzQImagens\nmeramente ilustrativas. Sujeita a disponibilidade do estoque. O preço das ofertas podem variar de acordo com a sua região.Ficou\ncom alguma dúvida? Clique aqui\n[https://app.zoitech.com.br/v2/location/cgrcdDk6fuaoP5KQ7scA/conversations/conversations/Otnt73d2XdlW4e53Ojdv?category=team-inbox&tab=all&query=Mobi#]Mobiauto\nLTDA | Avenida das Nações Unidas, 17007 - São Paulo - SPA Mobiauto respeita sua privacidade e não divulga seus dados. Você esta\nrecebendo este e-mail porque marcou a opção receber nossas ofertas e promoções.Descadastre-se\n[https://app.zoitech.com.br/v2/location/cgrcdDk6fuaoP5KQ7scA/conversations/conversations/Otnt73d2XdlW4e53Ojdv?category=team-inbox&tab=all&query=Mobi#]"
+    },
+    "workflow": {
+      "id": "4e924d3f-fd38-4c98-a3e7-982ce26544fc",
+      "name": "E-mails Notifications"
+    },
+    "triggerData": {},
+    "customData": {
+      "body-mail": "```json\n{\n  \"nome\": \"Thaiz de Souza\",\n  \"telefone\": \"(66) 99212-3187\",\n  \"email\": \"thaizdesouza342@gmail.com\",\n  \"fonte_do_lead\": \"Mobiauto\",\n  \"veiculo_interesse\": \"Honda CG 125 Fan ES 2012\",\n  \"placa\": \"OBF8I76\",\n  \"preco\": \"R$ 9.000\"\n}\n```"
+    }
+  },
+  {
+    "receivedAt": "2026-01-12T21:52:38.770Z",
+    "Placa Veículo Desejado": "Placa do Veículo Desejado",
+    "Score do lead": "Score do Lead",
+    "CPF/CNPJ": "CPF/CNPJ",
+    "Pessoa Física/Juridica": "Física",
+    "Telefone Residencial": "",
+    "Sexo": "Masculino",
+    "Última Compra": "",
+    "Veículo de Interesse": "Veículo de Interesse",
+    "Nome da Mãe": "Simônica",
+    "Apelido": "Apelido",
+    "Tipo de compra": "Financiamento",
+    "Cargo": "ZOI",
+    "Status de Crédito": "Status de Crédito",
+    "Mensagem": "Mensagem",
+    "RG": "RG",
+    "url video": "",
+    "Veículos Adquiridos": "",
+    "Grupos": "Consórcio",
+    "contact_id": "LpHftWV9jHzDriS09CpX",
+    "first_name": "Raul",
+    "last_name": "Behnke",
+    "full_name": "Raul Behnke",
+    "email": "behnkeraul@gmail.com",
+    "phone": "+5547997684618",
+    "tags": "",
+    "country": "BR",
+    "date_created": "2025-12-26T17:06:48.493Z",
+    "company_name": "Teste",
+    "date_of_birth": "2002-04-21T00:00:00.000Z",
+    "contact_source": "WHATSAPP",
+    "full_address": "",
+    "contact_type": "lead",
+    "location": {
+      "name": "TOP CAR VEÍCULOS",
+      "address": "Av. Ismael José do Nascimento, 2065 - W - Jardim Acacia",
+      "city": "Tangará da Serra",
+      "state": "Mato Grosso",
+      "country": "BR",
+      "postalCode": "78300-001",
+      "fullAddress": "Av. Ismael José do Nascimento, 2065 - W - Jardim Acacia, Tangará da Serra Mato Grosso 78300-001",
+      "id": "cgrcdDk6fuaoP5KQ7scA"
+    },
+    "user": {
+      "firstName": "Teste",
+      "lastName": "da ZOI",
+      "email": "notificacoes@topcar.appzoi.com",
+      "phone": "+5547997684618"
+    },
+    "message": {
+      "body": "mobiauto\n[https://image1.mobiauto.com.br/images/api/images/v1.0/23841992]https://app.zoitech.com.br/v2/location/cgrcdDk6fuaoP5KQ7scA/conversations/conversations/www.mobiauto.com.br\n\n\nNOVA MENSAGEM RECEBIDA\n\nOlá, TopCar Multimarcas LtdaVocê recebeu uma nova mensagem para o anúncio:Honda CG 125 Fan ES 2011/2012 (placa: OBF8I76)R$ 9.000\n\nresponder [https://mobigestor.mobiauto.com.br/mobigestor/48633/proposta/62441786]\n\nver anúncio [https://www.mobiauto.com.br/details/23005547]\n\n(cód: 23005547 | Anúncio 0km: false)\n\n Informações do cliente\n\nNome\n\nThaiz de Souza\n\nE-mail\n\nthaizdesouza342@gmail.com [thaizdesouza342@gmail.com]\n\nTelefone\n\n66992123187 Mensagem“null.Cliente fez uma simulação de financiamento no veículo Honda CG 125 Fan ES 2012 OBF8I76 R$ 9.000”\n\nresponder [https://mobigestor.mobiauto.com.br/mobigestor/48633/proposta/62441786]\n\nEm caso de dúvidas entre em contato através do email atendimento@mobiauto.com.brfacebook\n[https://marketing-image-production.s3.amazonaws.com/uploads/f9ed9527b83c90bd0a716bde2131ee653893abfb60467f255e44835675ee8ecac6da4530aded3f512ae6f7e8ef775b54cf954c2e51b62f744c30438b4b68be3a.png]https://www.facebook.com/mobiautoBr/ instagram\n[https://marketing-image-production.s3.amazonaws.com/uploads/1d54522dff5df2e6dce6aff1658997e0a244acfc9429351e9fc4b253154b40409802fbfd7fdf31bd9f388743f78228ef6aadceeb25d196eb69474d44882fea6b.png]https://www.instagram.com/mobiautobr/ youtube\n[https://marketing-image-production.s3.amazonaws.com/uploads/4e90fe3753392a8b55bb98a5ea5468466b9a89a165f914a935a8cd2cb537222f166b42538f138ef59d87e35372ffc27fe15c333fd32bdc93a58ffeb5d9cf184e.png]https://www.youtube.com/channel/UCRVVwLuRdxcSGluuYWWOTzQImagens\nmeramente ilustrativas. Sujeita a disponibilidade do estoque. O preço das ofertas podem variar de acordo com a sua região.Ficou\ncom alguma dúvida? Clique aqui\n[https://app.zoitech.com.br/v2/location/cgrcdDk6fuaoP5KQ7scA/conversations/conversations/Otnt73d2XdlW4e53Ojdv?category=team-inbox&tab=all&query=Mobi#]Mobiauto\nLTDA | Avenida das Nações Unidas, 17007 - São Paulo - SPA Mobiauto respeita sua privacidade e não divulga seus dados. Você esta\nrecebendo este e-mail porque marcou a opção receber nossas ofertas e promoções.Descadastre-se\n[https://app.zoitech.com.br/v2/location/cgrcdDk6fuaoP5KQ7scA/conversations/conversations/Otnt73d2XdlW4e53Ojdv?category=team-inbox&tab=all&query=Mobi#]"
+    },
+    "workflow": {
+      "id": "4e924d3f-fd38-4c98-a3e7-982ce26544fc",
+      "name": "E-mails Notifications"
+    },
+    "triggerData": {},
+    "customData": {
+      "body-mail": "```json\n{\n  \"nome\": \"Thaiz de Souza\",\n  \"telefone\": \"(66) 99212-3187\",\n  \"email\": \"thaizdesouza342@gmail.com\",\n  \"fonte_do_lead\": \"Mobiauto\",\n  \"veiculo_interesse\": \"Honda CG 125 Fan ES 2012\",\n  \"placa\": \"OBF8I76\",\n  \"preco\": \"R$ 9.000\"\n}\n```"
+    }
+  },
+  {
+    "receivedAt": "2026-01-12T22:01:45.255Z",
+    "Placa Veículo Desejado": "Placa do Veículo Desejado",
+    "Score do lead": "Score do Lead",
+    "CPF/CNPJ": "CPF/CNPJ",
+    "Pessoa Física/Juridica": "Física",
+    "Telefone Residencial": "",
+    "Sexo": "Masculino",
+    "Última Compra": "",
+    "Veículo de Interesse": "Veículo de Interesse",
+    "Nome da Mãe": "Simônica",
+    "Apelido": "Apelido",
+    "Tipo de compra": "Financiamento",
+    "Cargo": "ZOI",
+    "Status de Crédito": "Status de Crédito",
+    "Mensagem": "Mensagem",
+    "RG": "RG",
+    "url video": "",
+    "Veículos Adquiridos": "",
+    "Grupos": "Consórcio",
+    "contact_id": "LpHftWV9jHzDriS09CpX",
+    "first_name": "Raul",
+    "last_name": "Behnke",
+    "full_name": "Raul Behnke",
+    "email": "behnkeraul@gmail.com",
+    "phone": "+5547997684618",
+    "tags": "",
+    "country": "BR",
+    "date_created": "2025-12-26T17:06:48.493Z",
+    "company_name": "Teste",
+    "date_of_birth": "2002-04-21T00:00:00.000Z",
+    "contact_source": "WHATSAPP",
+    "full_address": "",
+    "contact_type": "lead",
+    "location": {
+      "name": "TOP CAR VEÍCULOS",
+      "address": "Av. Ismael José do Nascimento, 2065 - W - Jardim Acacia",
+      "city": "Tangará da Serra",
+      "state": "Mato Grosso",
+      "country": "BR",
+      "postalCode": "78300-001",
+      "fullAddress": "Av. Ismael José do Nascimento, 2065 - W - Jardim Acacia, Tangará da Serra Mato Grosso 78300-001",
+      "id": "cgrcdDk6fuaoP5KQ7scA"
+    },
+    "user": {
+      "firstName": "Teste",
+      "lastName": "da ZOI",
+      "email": "notificacoes@topcar.appzoi.com",
+      "phone": "+5547997684618"
+    },
+    "message": {
+      "body": "Descadastre-se\n[https://u5599472.ct.sendgrid.net/ls/click?upn=u001.HhldA4qRbTHxdK5WkzUH0qVvJO3oBrCW0rlJ8thKOsl0MUl3Q0-2FCFVNq68mYki9R5ALkNTGfcgF3vniE179ASJjJ0rgInCy7aH0fKuWDtlupXa-2BAdTEdOEHb9H-2FqxNyxsaydv2eNotLRCzvpEpkNwKtJi-2BqxHEcJhGyXuoujSD68aijOfZGRrw3Vnu9WJTK-2BwNtQ17DGnNxYBapxZwmbLcwbPUzG4g22-2FMznnUtOKjc9ge9VfFWJFP25DZSoq-2BGriYr5zDVolVdBpWIBRHf9UA-3D-3Dawys_fgtsPp8QJBP9fpehk9RFREX-2FmJuZTDdr869le61dze9vTBEt5i26CTKmEJKgysPbwb6kKdVVIVGxlZzm4ndJFZHsJjxdISbjuLwjyJZqt7G5k0zd5XclB-2Fnch3zjP607DwCMe2-2BaRdz4DjnVoq8-2BJoieNwm06jqRk2cP38qnnPxkjQci4phsMXlfJ60Eb98OsNWUeWTXQROZAg9rtSZ4Crpy2T5URqx7knD9nr8-2BlbOoY2CHCnXeyJ3y-2Bd1nG26EXQ8N1omHvMmfN38RsBVLVpgZD-2F86hYmN-2FgZJt7zfsOhvv3QnjlHvnGYnuuQ8m2wzhVZ5dchSxFS2KSs8ANUuj5m-2BKANaL6hxpXH84JnLyRw-3D]\n\n[https://d375w6nzl58bw0.cloudfront.net/uploads/e12ba4d78200d21ab4ac8129ece53c78093d6060db30ae87d4ac1b4056435cc2.png]https://u5599472.ct.sendgrid.net/ls/click?upn=u001.HhldA4qRbTHxdK5WkzUH0qVvJO3oBrCW0rlJ8thKOskOxIz1VB4b4imqBDVMzCuMaVVi9hibmIsM1TD97PMuiBvyLd-2FBrEFJisqXzmv-2FV5PCXp7gJbeDKNmumvbZf-2Bmlw5k5hDpmy3RAOTqS7UtWF6CG3PClcDt791IA0kJ16Fu5fqw-2FpRNK8srfhS-2BM6xxqX7e2sEe1mNipn9dgEGkoVtzMMwZemS1PxDkdD5yCY5OyxVLVpOHWUc2X5KizHnhlFQeT_fgtsPp8QJBP9fpehk9RFREX-2FmJuZTDdr869le61dze9vTBEt5i26CTKmEJKgysPbwb6kKdVVIVGxlZzm4ndJFX62c3EpSooY0sBsuZhy4cXKIhnwRhN1oVK8TWNLZ-2FJyn0DyK7pQkR-2F47VkyyHKvdPpV-2F4yE3iCcKVKZfYUmnuft6471Vyly-2BHe-2FjDkvJSlqWDaewNxShSCeshUoJXDQiTgI49pQn-2FSKp5NCjau0H-2BoLuhoFYv1qfcDo5Zc6s5edPUA96c55EYDc-2FJ4p5ScAdd-2B8fgL8Vh23Roidqvtg7X0xpQA0cGcPWNMYRMXI8EcEbwwdQ07F-2BeUMBW1C5ShU4uEOOFc3wv-2FLFmq7F-2BAEeBM-3Dcomprar\n[https://u5599472.ct.sendgrid.net/ls/click?upn=u001.HhldA4qRbTHxdK5WkzUH0qVvJO3oBrCW0rlJ8thKOslXMW4dOQQNLjtrx0KCE5k9qOqF9FsXKLe8SZ9PchRHmgF24TMRa-2Bo-2B6vXbAxhApzSryhGVuC500aQ-2Bw4qq9TMmQtPggyk7C-2F9JT188l0MjnnMuyCQlAunFJQzRaCBdS-2Fi-2F3R9YZHrWpx5p9PYQCZ0iUmYvHBdaXwAZrIYXoUCdOo7Da28ZYgAEWrLSCkyGz6lwhVRR7aatmIAWlbqp-2BGoLecru_fgtsPp8QJBP9fpehk9RFREX-2FmJuZTDdr869le61dze9vTBEt5i26CTKmEJKgysPbwb6kKdVVIVGxlZzm4ndJFYp-2FxvyQ4dt1HbyGa1wPT4d15soaNaXNwj87oKyJZ3AECIhk7Ew7yywPmzo252dOV8QVHjmUTKgLam3cZ0gZzJ7AUBOoZ77ygIFXTGFv-2FC1lg5ltqvDcACTZTpzuk8d9SLBOrO3oP9D4hlpDHlhEn2bHlUXvumiJ6f5G4aueJsDZoHi82FIvHAgV-2FTKb2D-2BNtNlKbF6IeXxexBMBM-2BstUySqEJuqHcJGLO9lHH9ODr4KX2197msoiCD-2FxewNodoPqojpre5SsUnQcJ5X3rWYEW0-3D]vender\n[https://u5599472.ct.sendgrid.net/ls/click?upn=u001.HhldA4qRbTHxdK5WkzUH0qVvJO3oBrCW0rlJ8thKOsnzxE-2BZwFCjbfr2M0cSrwwF5SzKVCYxMZq0Rxuehis76p5yZNFPZ04S7LfAsDqYQqmFfaFOKQViVritRawT5ViUY5nZCvBfAq9mh-2FRHU-2BnXvE6R0zKwIjiCzrJmQQvQy4PzeoEH261uG1UIO85PfP2tetkGCXfmicIps-2Bvgj2QKufWYwZhkfAJUb1dA-2F861YH-2FWlFy68KuOMyyoUeeq5S16jA1M_fgtsPp8QJBP9fpehk9RFREX-2FmJuZTDdr869le61dze9vTBEt5i26CTKmEJKgysPbwb6kKdVVIVGxlZzm4ndJFa2w7X08jlX-2FD3gbsmKYagP1G1-2BVq6-2FrTkRjhFcyi6x-2BfO9SYmA79RKIKT6kySPi6q1jIm9emmmGZ-2BJQ9m8PxdDWxjjhTyQyx8I5utrceV5F2unSKQUiON9wceKXFXgd65sxpjYEq5iUWEyobmyCGBB9FWOOWrKXpP-2B3Ba0tiIbisWny2OixHHH-2BHuhhknykSPT-2FXBrsY4KVHZY-2BqEvuJ5FYmf-2Fodxl8ioAW6kDcjcw6iWk0IR0CEVp17L-2FRVNYeML6kLqfYPKo3ht1BhPPXctE-3D]financiar\n[https://u5599472.ct.sendgrid.net/ls/click?upn=u001.HhldA4qRbTHxdK5WkzUH0qVvJO3oBrCW0rlJ8thKOsmz2emXLHMi0qAZtxTEgcGZAA1Z8IPi3fKeHE08PvQDYANP02SP5rJwuey6MhpCpLc6knhFCiRg-2BWf7tkSJWSzWsFWAIc90Y-2B6-2FYUAOBLdi34enU-2BJHg4ZRhWNMstZqDC7tn9dtQC5JkYmzKOX4zfdESJywbMIB-2FDQhHzbGw8KuleQ085HW1Uq9uq835qEfCQ4hpebl3qYTT-2F-2BoxwmnplHwB3_y_fgtsPp8QJBP9fpehk9RFREX-2FmJuZTDdr869le61dze9vTBEt5i26CTKmEJKgysPbwb6kKdVVIVGxlZzm4ndJFWVkeHJ7uxmO6af2jA2Uv7iNNyZUqU-2B0cHOkCVq14irTqgkcTpyDq7KvdqCiXoORSq0iyJhVI3-2Fljr3myDMWwpHh2RFBXgIkpcWo3L8pvW2WAJbFTXKP8izaNgNo-2F58TOb61DXEadAqYwL4JulpHr8gti28lpqSrR1Y-2BmPf2h7MA9CAby83VKrojAOwwo95iiWYHJCOZUW-2B3s0YFEKz8eO7GfBX-2F87pX-2Ba7KZLPpy0LrJB-2Bi1-2BnaEZQRaUS-2B5WeB1bbG-2FWHxKUnOgbcFWXPENR4-3D]\n\nOlá, TOPCAR MULTIMARCAS - MT.\nVocê recebeu uma nova proposta.Anúncio:Volkswagen Polo 1.0 (Flex) 2021.0 - R$ 69.900 (rak3g44)\n[https://u5599472.ct.sendgrid.net/ls/click?upn=u001.HhldA4qRbTHxdK5WkzUH0qVvJO3oBrCW0rlJ8thKOslmNRrocCOgWC0gPd-2FhtHDP9ZAEljh2-2B8M7eNT1SDtn35MBaX1W4hTfey15fj3l1qhb21P7rF8W8LnK4bVBVT5VpcWgCsjHscU4Ob2XnVJTjbUEhndOfve4Ec7Wf0SfIzNfsPHkPph0gGN6-2BQDw-2FEu-2B1rLYCdIClCLnYpswS5I3me8TpBTRD6UBVxkdN53W4VraCmT2MzXzb-2B-2BNJek3NOjMMS-2FaZkxzIH9xY8u8EnNwVg-3D-3DDse6_fgtsPp8QJBP9fpehk9RFREX-2FmJuZTDdr869le61dze9vTBEt5i26CTKmEJKgysPbwb6kKdVVIVGxlZzm4ndJFRTOKdGNf34rW93zMZ9VyWfeOSdB6-2FhR8GS4KQ09-2Foiw-2BaOvojf2JpBUrBS9ljujD-2FJ8W5ryQXzxfT6c7q9sUcbIkNXcA1tW15arPtMs2XCVhP7r81gz0VkQaEk8-2B4q3kqObltmCCpb9apzFdBqp2DoIzPB7QplCz2-2FNeysgAzdND-2FkALL3Ti7lkCl8HyvgZBnp6PRj-2BvLkK0LFI1rCDX6MzSDUfZSSKfhrtaa7nbyGM1vw1RSBeCyAHQ75BMemN0uqE0vM0YuCAKI9Hy9M8ETU-3D]\n\nMensagem\n\n“Você ainda não recebeu uma mensagem, mas a pessoa se interessou pelo carro. Aproveite o contato!“\n\nInformações do cliente\n\nNomeJeymes weverton mendes06586926157\n\nE-mailjeymeswmendes78@gmail.com [jeymeswmendes78@gmail.com]\n\nTelefone(65) 98100-1441\n\nCondições\n\nFinanciamentoEntrada de R$ 20.970\n\nFique atento\n\n[https://marketing-image-production.s3.amazonaws.com/uploads/97779d6760b31dc045d1561f32bb7b55881337b8fc201f94afb483844aa185548f043e5eccf870db27ad1b890b166c6db734a846dd6cc0c17d0de524371f09fb.png]Não\ncompartilhe PINs ou senhas por telefone ou mensagem. Mantenha a sua conta do Whatsapp segura. Saiba mais\n[https://u5599472.ct.sendgrid.net/ls/click?upn=u001.HhldA4qRbTHxdK5WkzUH0kXov22XENsj5AZ47T-2FhanQ6YlZrVMfpY1a-2FmQj8THUcWtpNCrC5PzxHWT6wPoeC-2FA-3D-3DoTz7_fgtsPp8QJBP9fpehk9RFREX-2FmJuZTDdr869le61dze9vTBEt5i26CTKmEJKgysPbwb6kKdVVIVGxlZzm4ndJFSQyd9O0SFrcStgV8bFhqQ5uaKqFhFB6k5obxXtSdHJcjpoxv8k-2BjidkKoX0zT3dpSpSlI31sUx-2BByvHlsIM5cBu6RD31-2Ft97ZrDcJY5sq2ur3F9oVVLG5NR8AL4gT5aCvpa9RVKztkvptBTQGSmAXaUy7rs70pMB-2F3bpsICL7cDmMAWPYWqXfIX5CKtVR0pAm2gGydXUGvsnXpG2ALl6KGDhgZo3piqftnW3aIXyvR8z9PkKUOueNAxuHVEtjDZHAFlzZYBRpMMtFoNgO5muNo-3D].\n\n\n\n[https://u5599472.ct.sendgrid.net/wf/open?upn=u001.dRVLly9LBIngNJtRUub4qmS9qBH6-2BwfTYqt8Caekrm47bAYKxlLERLLBFIFf6Diq2t8ifvcGhVINfY9w6Q98F1v8docQsocn4OP1xyjdvHJ-2BYucQgzsrcsSROwPSIY-2FfAyUhxvnH05v-2F3-2FMwMTHUbV04YBFgKXEu0nRyUojtxT-2BZrwuWgUqFz8A95X4k4yOZbKhk3sMBY-2Bwhc0gwmpQ5GAZlK98EK-2B7XNdjxMw-2FzXPqljNo8o40F-2B1USoEnf4IR6vdGtI1UpMxwC0XqjNWLSYHjLOFzMMkoEtqTDSv4tzGO3JtRSDRFPeFUxxU5V6PEStjp17bUhOvKr6in0t-2FQC14ygZV8lpZVdCDd5578GWmA-3D]\n\n[https://d375w6nzl58bw0.cloudfront.net/uploads/4ac812be9b75976dd096b80ca5f6c8ce9753e2c4f781843e567076ce9641a438.png]https://u5599472.ct.sendgrid.net/ls/click?upn=u001.HhldA4qRbTHxdK5WkzUH0o-2BQDTnreZCPveKzb-2FdriJObF2QumW38ucq-2FumZvOpBojloZcxtAjP2KECu0w5lBbg-3D-3Duv9V_fgtsPp8QJBP9fpehk9RFREX-2FmJuZTDdr869le61dze9vTBEt5i26CTKmEJKgysPbwb6kKdVVIVGxlZzm4ndJFbSTI7-2FAVLkc-2BTl73sW8fMNSdJOoY24rtn-2BU97LFbd8l6TMRKTnxxkJIvKYUT12gBfTIEHDChouZcTnD9wQX-2B8Dd8jMijO-2B6gRNIPCXLOrf6lc4ixTBN-2FkDJ-2BVgWlNc9VBRz12nFW99HZpiEKq0DXL8Q-2BykCWvFYuLU4DxFMQBh3uM-2BjFv7gchMDljsZ1JmpKMtoDNl4q70xLgBVwm1hqac8hR63m5xz-2BrRJQJ2X3DJCImRKJ8SsDlxa-2BnMSZLF1AuNcypKaq-2BcsC6YBdpgqIdk-3D[https://d375w6nzl58bw0.cloudfront.net/uploads/4bd950b5c6ca0abf3e34cbe74314fdb0d83b83fa27c15c44679dae036f7cf762.png]https://u5599472.ct.sendgrid.net/ls/click?upn=u001.HhldA4qRbTHxdK5WkzUH0utqeQzG2x0FCnys1p8mHM-2BmY11UXiJqLXl7kwYWTKyp-VWa_fgtsPp8QJBP9fpehk9RFREX-2FmJuZTDdr869le61dze9vTBEt5i26CTKmEJKgysPbwb6kKdVVIVGxlZzm4ndJFfk-2Fl8ik8ulC-2BXJ28X06BA3bL21fHtrxJDI9MySQAsvlTOBzpIu0Xatv8YwDvTBNB2HVtZ3z2JYtQoqXvLBjqFrFjIljhUifd-2FVXllqSXd1c7B1-2Fd6w-2BmESN41a3iISRcfoEgpYcJane6ZpzuZ2QBS0ELXQg9hMZpgRcFuryw4-2BHDH4kTNfn-2F-2Fcb2LNd1uErbQjzBtUaai1oMEIGagFBkIYOQTw74U2MpxEutOMsjlk2U3-2BMPSp6KLifzgigr2LEhjigceO5IuYzu2Y3iEgFy6Y-3D[https://d375w6nzl58bw0.cloudfront.net/uploads/a988b482d5f6d3829ceeb98e6069f6d907a3dc843886c95e52140dd9a9fed8ff.png]https://u5599472.ct.sendgrid.net/ls/click?upn=u001.HhldA4qRbTHxdK5WkzUH0kXov22XENsj5AZ47T-2FhanTPok237qf9x9CLIYTnIUimpkIe_fgtsPp8QJBP9fpehk9RFREX-2FmJuZTDdr869le61dze9vTBEt5i26CTKmEJKgysPbwb6kKdVVIVGxlZzm4ndJFWt-2BI0iOZa-2BQ0D0zFhFmggwz4nuxPN9EIts0H-2FoYWLchTU-2Btbnt3ofV35dP20M4P4lZAmD3Dfb49-2B0LstsYhV0usAOW6RQi-2FZVdykesQv-2BB6wr-2F3WHXPFeQ985Xt4QVnmw8dx-2BTkI1cTENZqdySmAX-2BrRoDj8f0tTGNtAUz9AsgiixFtHc7x79hkLkwnFJAJ-2Bp1Xc5DeTB1DhRkiJrYizL6wds40xfE47zh4g1F7Lp6i6NVuUwPQiOqniZm6U1sRgEw-2BNNZ4uGY-2FbXRPdZQZ1L4-3D[https://d375w6nzl58bw0.cloudfront.net/uploads/f927c409c0ad0cada1e75d4f202c40b57099acd5545285d1618a6d12e5bcc370.png]https://u5599472.ct.sendgrid.net/ls/click?upn=u001.HhldA4qRbTHxdK5WkzUH0u1MWFWNMcicNgAJ-2BWeiFYg61dlFG9xVEp0cZsDe-2B2dj10IHa80EybYvOwWvUja5yQ-3D-3DTf-h_fgtsPp8QJBP9fpehk9RFREX-2FmJuZTDdr869le61dze9vTBEt5i26CTKmEJKgysPbwb6kKdVVIVGxlZzm4ndJFc5qSwVzJpIMIxY9a0bxBpv6CGSTXwCPzY58U07NmpxI91WBn3OAhpg6xGCe1dN-2BeIPS0TqXTDLWYDgX12cT-2BV0nl7iQhfAqwknYp4ITTVSK-2FevmZPIm78dPckfYoFNv-2BN2qwAV5fEKWOCVpK03BW7trjftaQ62C6Yzl-2F6xpuVCbsH7HtSsV-2BRiT-2FCRYFjGMfhloTnDJb87fw8XL2eN-2BJeRsuV-2BPEBym6328kQT3-2BfMHz8Qu1-2FiGBFvbg-2FK-2BIGlE5x67UQ4BwsHScTTil1NYI6A-3D\n\n[https://d375w6nzl58bw0.cloudfront.net/uploads/e12ba4d78200d21ab4ac8129ece53c78093d6060db30ae87d4ac1b4056435cc2.png]https://u5599472.ct.sendgrid.net/ls/click?upn=u001.1OJ-2BAbrKFKTpRBUuUolseuVlBF8NI5HN5MTD3Kt4MIObPV87OcfD7A2P2yaKZ6lG-2Fi-2BKsWyo9QUQJHTfep3NGQ1D6p-2Bb3y5Qnuiq00b5aEIo89YZnGwwT95MIk8BsvVC7Z9JrBnkXOjbWseVg2sdWJJXzXfx7IVSu9M6XQ1hbGEz5Df-2Bb9-2FEc713bSvP-2FJwDqBzKwTTehOwaED8cZsDlMw-3D-3DYNTu_fgtsPp8QJBP9fpehk9RFREX-2FmJuZTDdr869le61dze9vTBEt5i26CTKmEJKgysPbwb6kKdVVIVGxlZzm4ndJFYsPD3iAXAuMwwprmqyXebDyixk3C88bKQ-2FDdHeuXdwyXN4JB-2BlnBQz-2FKgJxQqbeX93WbU6g6-2FfnArZqwbbngWNUSMzbmT-2FoTzL4BokXa91n7k8txghgODeK7z8c8YeIvKoxAVz7dpVSsc0DJB4DSAdHhV8ewNd29vEjKRH4-2BSXQDSkEO-2BCEcdd-2B3FuqJ-2BNf3kVd8qtfySC1a7VLfsG0JFs7c6wTe7uS-2BfGSbmFC-2FqbGqO3Pu0QedKR6kSYj01h7StXFzuntEPdu5Eb3-2FBmsczA-3D\n\nicarros é a plataforma que conecta pessoas em todo o Brasil, com facilidade, segurança e inteligência para criar boas\noportunidades de compra e venda de veículos. você está recebendo esse e-mail por ter marcado a opção de receber nossas ofertas e\npromoções.\n\nem caso de dúvidas, sugestões ou elogios, envie um e-mail para atendimento@icarros.com.br\n[atendimento@icarros.com.br?Subject=Ol?%20iCarros].\nnosso atendimento opera de segunda a sexta-feira, das 09h às 18h.\n\ncaso não queira receber mais conteúdos, cancele aqui\n[https://u5599472.ct.sendgrid.net/ls/click?upn=u001.HhldA4qRbTHxdK5WkzUH0qVvJO3oBrCW0rlJ8thKOsl0MUl3Q0-2FCFVNq68mYki9R5ALkNTGfcgF3vniE179ASJjJ0rgInCy7aH0fKuWDtlupXa-2BAdTEdOEHb9H-2FqxNyxsaydv2eNotLRCzvpEpkNwKtJi-2BqxHEcJhGyXuoujSD68aijOfZGRrw3Vnu9WJTK-2BwNtQ17DGnNxYBapxZwmbLcwbPUzG4g22-2FMznnUtOKjc9ge9VfFWJFP25DZSoq-2BGriYr5zDVolVdBpWIBRHf9UA-3D-3DQy-a_fgtsPp8QJBP9fpehk9RFREX-2FmJuZTDdr869le61dze9vTBEt5i26CTKmEJKgysPbwb6kKdVVIVGxlZzm4ndJFdAZzwHzb1-2BmPbQCKGJMwBX8SJRGvkaGVAoVRODdgmpJ17aTlkHv-2FqgU9mda1AGEeN40Tjvrfce-2F7DkIU5nTu7I41f0dkP4OXeBrxfuhq3NuKlIZ7-2FBeTtx0o8-2Bs9U1KLtumPpxBaeyrqQwh034UwY8dsW7bQXcK5PhDCp4TFKspP9gEsalHKJFZqruGx34PntzqlXwzCJUCGqfC8kn3loi6tC3yiymaRbwZ4dPTp7PIBL7sGl1qj1RD36JmyZUgzhtbaYFLVUgVESbWV-2BLpOcM-3D] sua\ninscrição."
+    },
+    "workflow": {
+      "id": "4e924d3f-fd38-4c98-a3e7-982ce26544fc",
+      "name": "E-mails Notifications"
+    },
+    "triggerData": {},
+    "customData": {
+      "body-mail": "```json\n{\n  \"nome\": \"Jeymes Weverton Mendes\",\n  \"telefone\": \"(65) 98100-1441\",\n  \"email\": \"jeymeswmendes78@gmail.com\",\n  \"fonte_do_lead\": \"iCarros\",\n  \"veiculo_interesse\": \"Volkswagen Polo 1.0 (Flex) 2021\",\n  \"placa\": null,\n  \"preco\": \"R$ 69.900\"\n}\n```"
+    }
+  }
+]

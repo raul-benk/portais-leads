@@ -1,0 +1,5 @@
+{
+  "name": "OpsLink Admin",
+  "description": "Internal operational panel for managing client integrations, webhooks, and lead pipelines.",
+  "requestFramePermissions": []
+}
