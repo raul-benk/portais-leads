@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Card, SectionHeader } from '../components/Shared';
-import { fetchIntegrations, fetchLeads } from '../services/api';
-import { Integration, Lead, IntegrationStatus } from '../types';
+import { fetchIntegrations, fetchLeads, fetchWebhooks } from '../services/api';
+import { Integration, Lead, WebhookEvent } from '../types';
 import { Activity, AlertCircle, ArrowUpRight, Zap } from 'lucide-react';
 
 const StatCard: React.FC<{ title: string, value: string | number, icon: React.ElementType, trend?: string }> = ({ title, value, icon: Icon, trend }) => (
@@ -23,27 +23,36 @@ const StatCard: React.FC<{ title: string, value: string | number, icon: React.El
       <div className="bg-gray-50 px-6 py-3 border-t border-gray-100">
         <div className="text-sm">
           <span className="font-medium text-gray-900">{trend}</span>
-          <span className="text-gray-500"> since yesterday</span>
         </div>
       </div>
     )}
   </Card>
 );
 
+const isToday = (dateString?: string) => {
+  if (!dateString) return false;
+  const date = new Date(dateString);
+  const now = new Date();
+  return date.toDateString() === now.toDateString();
+};
+
 export const Dashboard: React.FC = () => {
   const [integrations, setIntegrations] = useState<Integration[]>([]);
   const [leads, setLeads] = useState<Lead[]>([]);
+  const [events, setEvents] = useState<WebhookEvent[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const loadData = async () => {
       try {
-        const [intData, leadsData] = await Promise.all([
+        const [intData, leadsData, eventData] = await Promise.all([
           fetchIntegrations(),
-          fetchLeads()
+          fetchLeads(),
+          fetchWebhooks()
         ]);
         setIntegrations(intData);
         setLeads(leadsData);
+        setEvents(eventData);
       } catch (error) {
         console.error("Erro ao carregar dados do dashboard:", error);
       } finally {
@@ -53,18 +62,17 @@ export const Dashboard: React.FC = () => {
     loadData();
   }, []);
 
-  // Calculate stats
   const totalIntegrations = integrations.length;
-  const activeIntegrations = integrations.filter(i => i.status === IntegrationStatus.Active).length;
-  
-  // Como não temos endpoint de webhooks ainda, usamos 0 ou dados derivados
-  const webhooksToday = 0; 
-  const leadsToday = leads.length;
-  const failedEvents = 0;
-  
-  // Usar o último lead como referência de atividade
-  const lastActivity = leads.length > 0 
-    ? [...leads].sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())[0] 
+  const activeIntegrations = integrations.filter(i => i.status === 'active').length;
+  const onboardingIntegrations = integrations.filter(i => i.status === 'onboarding').length;
+  const errorIntegrations = integrations.filter(i => i.status === 'error').length;
+
+  const webhooksToday = events.filter((event) => isToday(event.receivedAt)).length;
+  const failedEvents = events.filter((event) => event.status === 'failed').length;
+  const leadsTotal = leads.length;
+
+  const lastActivity = leads.length > 0
+    ? [...leads].sort((a, b) => new Date(b.receivedAt || 0).getTime() - new Date(a.receivedAt || 0).getTime())[0]
     : null;
 
   if (loading) {
@@ -80,19 +88,19 @@ export const Dashboard: React.FC = () => {
           title="Total Integrações" 
           value={totalIntegrations} 
           icon={Zap}
-          trend={`${activeIntegrations} Ativas`}
+          trend={`${activeIntegrations} ativas • ${onboardingIntegrations} onboarding • ${errorIntegrations} erro`}
         />
         <StatCard 
           title="Webhooks (Hoje)" 
           value={webhooksToday} 
           icon={Activity} 
-          trend="N/A"
+          trend={`${failedEvents} falhos`}
         />
         <StatCard 
           title="Leads Processados" 
-          value={leadsToday} 
+          value={leadsTotal} 
           icon={ArrowUpRight} 
-          trend="Total"
+          trend="Total acumulado"
         />
         <StatCard 
           title="Eventos Falhos" 
@@ -105,33 +113,31 @@ export const Dashboard: React.FC = () => {
         <Card title="Status do Sistema">
            <div className="flex items-center justify-between py-4 border-b border-gray-100 last:border-0">
               <span className="text-sm text-gray-600">Última Atividade</span>
-              <span className="text-sm font-mono font-medium">{lastActivity ? new Date(lastActivity.createdAt).toLocaleString() : 'N/A'}</span>
+              <span className="text-sm font-mono font-medium">{lastActivity?.receivedAt ? new Date(lastActivity.receivedAt).toLocaleString() : 'N/A'}</span>
            </div>
            <div className="flex items-center justify-between py-4 border-b border-gray-100 last:border-0">
-              <span className="text-sm text-gray-600">Latência API (Est.)</span>
-              <span className="text-sm font-mono font-medium text-green-600">~45ms</span>
+              <span className="text-sm text-gray-600">Integrações Ativas</span>
+              <span className="text-sm font-mono font-medium text-green-600">{activeIntegrations}</span>
            </div>
            <div className="flex items-center justify-between py-4 border-b border-gray-100 last:border-0">
-              <span className="text-sm text-gray-600">Conexão Backend</span>
-              <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-green-100 text-green-800">
-                Online
-              </span>
+              <span className="text-sm text-gray-600">Integrações em Erro</span>
+              <span className="text-sm font-mono font-medium text-red-600">{errorIntegrations}</span>
            </div>
         </Card>
         
         <Card title="Atividade Recente (Leads)">
            <ul className="divide-y divide-gray-100">
              {leads.slice(0, 5).map(lead => (
-               <li key={lead.id} className="py-3 flex justify-between items-center text-sm">
+               <li key={lead.leadId || lead.id} className="py-3 flex justify-between items-center text-sm">
                  <div className="flex flex-col">
-                   <span className="font-medium text-gray-900">{lead.name}</span>
-                   <span className="text-gray-500 text-xs">via {lead.integrationName}</span>
+                   <span className="font-medium text-gray-900">{lead.nome || lead.name || lead.email || 'Sem nome'}</span>
+                   <span className="text-gray-500 text-xs">via {lead.integrationName || lead.integrationId}</span>
                  </div>
                  <div className="flex flex-col items-end">
-                    <span className={lead.status === 'Error' ? 'text-red-600 font-medium' : 'text-gray-600'}>
+                    <span className={lead.status === 'failed' ? 'text-red-600 font-medium' : 'text-gray-600'}>
                       {lead.status}
                     </span>
-                    <span className="text-gray-400 text-xs">{new Date(lead.createdAt).toLocaleTimeString()}</span>
+                    <span className="text-gray-400 text-xs">{lead.receivedAt ? new Date(lead.receivedAt).toLocaleTimeString() : ''}</span>
                  </div>
                </li>
              ))}

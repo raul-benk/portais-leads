@@ -6,7 +6,6 @@ const OUTPUT_DIR = path.resolve(__dirname, 'output');
 const LOG_DIR = path.resolve(__dirname, 'logs');
 
 const FILES = {
-  INTEGRATIONS: path.join(OUTPUT_DIR, 'integrations.json'),
   LEADS: path.join(OUTPUT_DIR, 'leads.json'),
   WEBHOOKS: path.join(LOG_DIR, 'webhook-events.json')
 };
@@ -23,7 +22,6 @@ for (const file of Object.values(FILES)) {
 
 // Filas de escrita para evitar Race Conditions (Mutex simples)
 const writeQueues = {
-  [FILES.INTEGRATIONS]: Promise.resolve(),
   [FILES.LEADS]: Promise.resolve(),
   [FILES.WEBHOOKS]: Promise.resolve()
 };
@@ -65,22 +63,21 @@ function scheduleWrite(filePath, operation) {
 // --- Métodos Públicos ---
 
 const storage = {
-  // Integrações
-  readIntegrations: () => fs.readJson(FILES.INTEGRATIONS),
-  
-  writeIntegrations: (data) => scheduleWrite(FILES.INTEGRATIONS, () => data),
-  
-  getIntegrationBySlug: async (slug) => {
-    const list = await fs.readJson(FILES.INTEGRATIONS);
-    return list.find(i => i.slug === slug);
-  },
-
   // Webhooks
   readWebhookEvents: () => fs.readJson(FILES.WEBHOOKS),
   
   appendWebhookEvent: (event) => scheduleWrite(FILES.WEBHOOKS, (list) => {
     list.push(event);
     return list;
+  }),
+
+  updateWebhookEvent: (eventId, updates) => scheduleWrite(FILES.WEBHOOKS, (list) => {
+    const index = list.findIndex(e => e.eventId === eventId || e.id === eventId);
+    if (index !== -1) {
+      list[index] = { ...list[index], ...updates };
+      return list;
+    }
+    return undefined;
   }),
 
   // Leads
@@ -99,6 +96,11 @@ const storage = {
     }
     // Se não encontrar, retorna undefined para não reescrever o arquivo
     return undefined; 
+  }),
+
+  deleteLead: (leadId) => scheduleWrite(FILES.LEADS, (list) => {
+    const next = list.filter(l => l.id !== leadId && l.leadId !== leadId);
+    return next;
   })
 };
 

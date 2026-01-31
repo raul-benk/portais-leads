@@ -1,15 +1,16 @@
-import { Integration, IntegrationStatus, SetupChecklistItem, WebhookEvent, WebhookStatus, Lead, LogEntry } from '../types';
+import { Integration, ChecklistItem, WebhookEvent, Lead, LogEntry } from '../types';
 
 const generateId = () => Math.random().toString(36).substr(2, 9);
 
-const defaultChecklist: SetupChecklistItem[] = [
-  { id: '1', label: 'Integration created', checked: true, status: 'Done' },
-  { id: '2', label: 'Credentials configured', checked: false, status: 'Pending' },
-  { id: '3', label: 'Sub-account created', checked: false, status: 'Pending' },
-  { id: '4', label: 'DNS configured', checked: false, status: 'Pending' },
-  { id: '5', label: 'Notification email created', checked: false, status: 'Pending' },
-  { id: '6', label: 'Email automation activated', checked: false, status: 'Pending' },
-  { id: '7', label: 'Webhook receiving data', checked: false, status: 'Pending' },
+const defaultChecklist: ChecklistItem[] = [
+  { key: 'subconta_criada', label: 'Subconta criada', type: 'manual', required: true, status: 'pending' },
+  { key: 'pit_token_inserido', label: 'PIT Token inserido', type: 'manual', required: true, status: 'pending' },
+  { key: 'workflow_duplicado', label: 'Workflow duplicado', type: 'manual', required: true, status: 'pending' },
+  { key: 'custom_value_webhook_criado', label: 'Custom Value Webhook criado', type: 'auto', required: true, status: 'pending' },
+  { key: 'dns_configurado', label: 'DNS configurado', type: 'manual', required: true, status: 'pending' },
+  { key: 'usuario_suporte_criado', label: 'Usuario de suporte criado', type: 'auto', required: true, status: 'pending' },
+  { key: 'webhook_healthcheck', label: 'Webhook healthcheck', type: 'auto', required: true, status: 'pending' },
+  { key: 'webhook_testado', label: 'Webhook testado', type: 'auto', required: true, status: 'pending' }
 ];
 
 export const MOCK_INTEGRATIONS: Integration[] = [

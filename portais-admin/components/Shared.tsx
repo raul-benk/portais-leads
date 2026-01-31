@@ -17,7 +17,7 @@ export const formatDate = (dateStr: string) => {
 // --- Components ---
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'outline' | 'danger' | 'ghost';
+  variant?: 'primary' | 'secondary' | 'outline' | 'danger' | 'ghost' | 'warning';
   size?: 'sm' | 'md' | 'lg';
 }
 
@@ -30,6 +30,7 @@ export const Button: React.FC<ButtonProps> = ({ variant = 'primary', size = 'md'
     outline: "border border-gray-300 bg-transparent text-gray-700 hover:bg-gray-50 focus:ring-gray-300",
     danger: "bg-red-600 text-white hover:bg-red-700 focus:ring-red-500",
     ghost: "bg-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900",
+    warning: "bg-yellow-100 text-yellow-800 hover:bg-yellow-200 focus:ring-yellow-500 border border-yellow-200",
   };
 
   const sizes = {
@@ -73,10 +74,11 @@ export const Badge: React.FC<{ variant?: 'success' | 'warning' | 'error' | 'neut
   );
 };
 
-export const CopyInput: React.FC<{ value: string, label?: string }> = ({ value, label }) => {
+export const CopyInput: React.FC<{ value: string, label?: string, disabled?: boolean, helpText?: string }> = ({ value, label, disabled, helpText }) => {
   const [copied, setCopied] = React.useState(false);
 
   const handleCopy = () => {
+    if (disabled) return;
     navigator.clipboard.writeText(value);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
@@ -90,19 +92,28 @@ export const CopyInput: React.FC<{ value: string, label?: string }> = ({ value, 
           <input
             type="text"
             readOnly
-            className="focus:ring-black focus:border-black block w-full rounded-none rounded-l-md sm:text-sm border-gray-300 bg-gray-50 text-gray-600 font-mono"
+            disabled={disabled}
+            className={cn(
+              "focus:ring-black focus:border-black block w-full rounded-none rounded-l-md sm:text-sm border-gray-300 font-mono transition-colors",
+              disabled ? "bg-gray-100 text-gray-400 cursor-not-allowed" : "bg-gray-50 text-gray-600"
+            )}
             value={value}
           />
         </div>
         <button
           type="button"
           onClick={handleCopy}
-          className="relative -ml-px inline-flex items-center space-x-2 rounded-r-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:border-black focus:outline-none focus:ring-1 focus:ring-black"
+          disabled={disabled}
+          className={cn(
+            "relative -ml-px inline-flex items-center space-x-2 rounded-r-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium focus:border-black focus:outline-none focus:ring-1 focus:ring-black transition-colors",
+             disabled ? "text-gray-300 cursor-not-allowed hover:bg-white" : "text-gray-700 hover:bg-gray-50"
+          )}
         >
           {copied ? <Check className="h-4 w-4 text-green-600" /> : <Copy className="h-4 w-4 text-gray-400" />}
-          <span>{copied ? 'Copied' : 'Copy'}</span>
+          <span>{copied ? 'Copiado' : 'Copiar'}</span>
         </button>
       </div>
+      {helpText && <p className={cn("mt-1 text-xs", disabled ? "text-yellow-600" : "text-gray-500")}>{helpText}</p>}
     </div>
   );
 };
@@ -111,7 +122,7 @@ export const Input: React.FC<React.InputHTMLAttributes<HTMLInputElement> & { lab
   <div className="w-full">
     {label && <label className="block text-sm font-medium text-gray-700 mb-1">{label}</label>}
     <input
-      className={cn("shadow-sm focus:ring-black focus:border-black block w-full sm:text-sm border-gray-300 rounded-md", className)}
+      className={cn("shadow-sm focus:ring-black focus:border-black block w-full sm:text-sm border-gray-300 rounded-md h-10 px-3", className)}
       {...props}
     />
   </div>

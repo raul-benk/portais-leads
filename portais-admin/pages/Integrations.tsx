@@ -1,15 +1,59 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { fetchIntegrations, createIntegration } from '../services/api';
-import { Integration, IntegrationStatus } from '../types';
-import { SectionHeader, Button, Badge, Card, formatDate, Input } from '../components/Shared';
-import { Plus, Search, X, Loader2, ExternalLink } from 'lucide-react';
+import { fetchIntegrations, createIntegration, deleteIntegration, fetchWebhooks, testIntegration } from '../services/api';
+import { Integration, WebhookEvent } from '../types';
+import { SectionHeader, Button, Badge, Card, formatDate, Input, cn } from '../components/Shared';
+import { Plus, Search, X, Loader2, Trash2, PlayCircle, AlertTriangle } from 'lucide-react';
+
+const getStatusVariant = (status: string) => {
+  if (status === 'active') return 'success';
+  if (status === 'onboarding') return 'warning';
+  if (status === 'error') return 'error';
+  return 'neutral';
+};
+
+const getStatusLabel = (status: string) => {
+  if (status === 'active') return 'Ativo';
+  if (status === 'onboarding') return 'Em configuração';
+  if (status === 'error') return 'Erro';
+  if (status === 'draft') return 'Rascunho';
+  return 'Desconhecido';
+};
+
+const getChecklistProgress = (integration: Integration) => {
+  const required = (integration.checklist || []).filter((item) => item.required);
+  if (required.length === 0) {
+    return { percent: 0, doneCount: 0, requiredCount: 0 };
+  }
+  const done = required.filter((item) => item.status === 'done').length;
+  return {
+    percent: Math.round((done / required.length) * 100),
+    doneCount: done,
+    requiredCount: required.length
+  };
+};
+
+const getLastEvent = (events: WebhookEvent[], integrationId: string) => {
+  const list = events.filter((event) => event.integrationId === integrationId);
+  if (list.length === 0) return null;
+  return list
+    .map((event) => ({
+      ...event,
+      _ts: new Date(event.receivedAt || event.processedAt || 0).getTime()
+    }))
+    .sort((a, b) => b._ts - a._ts)[0];
+};
 
 export const Integrations: React.FC = () => {
   const navigate = useNavigate();
   const [integrations, setIntegrations] = useState<Integration[]>([]);
+  const [events, setEvents] = useState<WebhookEvent[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
+
+  const [actionMessage, setActionMessage] = useState<string | null>(null);
+  const [actionError, setActionError] = useState<string | null>(null);
+  const [testingId, setTestingId] = useState<string | null>(null);
   
   // Modal state
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -18,11 +62,22 @@ export const Integrations: React.FC = () => {
   const [isCreating, setIsCreating] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  const internalToken = (import.meta as any)?.env?.VITE_INTERNAL_TOKEN;
+  const hasInternalToken = Boolean(internalToken);
+  const isDev = (import.meta as any)?.env?.MODE === 'development';
+  const isLocalhost = typeof window !== 'undefined' &&
+    (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
+  const internalActionsEnabled = hasInternalToken || isDev || isLocalhost;
+
   const loadData = async () => {
     try {
       setLoading(true);
-      const data = await fetchIntegrations();
-      setIntegrations(data);
+      const [integrationData, eventData] = await Promise.all([
+        fetchIntegrations(),
+        fetchWebhooks()
+      ]);
+      setIntegrations(integrationData);
+      setEvents(eventData);
     } catch (err) {
       console.error(err);
     } finally {
@@ -53,13 +108,54 @@ export const Integrations: React.FC = () => {
     }
   };
 
+  const handleDelete = async (id: string, name: string, e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (window.confirm(`Tem certeza que deseja excluir a integração "${name}"? Esta ação não pode ser desfeita.`)) {
+      try {
+        setLoading(true);
+        await deleteIntegration(id);
+        await loadData();
+      } catch (err) {
+        console.error(err);
+        alert('Erro ao excluir integração.');
+        setLoading(false);
+      }
+    }
+  };
+
+  const handleTest = async (integration: Integration, e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!internalActionsEnabled) {
+      setActionMessage(null);
+      setActionError('Ações internas desabilitadas.');
+      return;
+    }
+    if (!window.confirm(`Executar teste da integração "${integration.name}"?`)) return;
+    setActionMessage(null);
+    setActionError(null);
+    setTestingId(integration.id);
+    try {
+      const result = await testIntegration(integration.id);
+      const steps = (result?.steps || []).map((step: any) => `${step.step}: ${step.ok ? 'ok' : 'falhou'}`).join(', ');
+      const timestamp = formatDate(new Date().toISOString());
+      if (result?.success) {
+        setActionMessage(`Concluído em ${timestamp}. Teste OK. ${steps}`);
+      } else {
+        setActionError(`Falha em ${timestamp}. ${steps || 'Teste falhou.'} Verifique os logs.`);
+      }
+    } catch (err: any) {
+      setActionError(`${err.message || 'Falha ao testar integração.'} Verifique os logs.`);
+    } finally {
+      setTestingId(null);
+    }
+  };
+
   // Auto-generate slug from name if slug is untouched
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const val = e.target.value;
     setNewName(val);
-    // Simple slugify logic
     if (!newSlug || newSlug === val.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')) {
-       setNewSlug(val.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''));
+      setNewSlug(val.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''));
     }
   };
 
@@ -72,7 +168,7 @@ export const Integrations: React.FC = () => {
     <div className="space-y-6">
       <SectionHeader 
         title="Integrações" 
-        subtitle="Gerencie clientes e endpoints de webhook."
+        subtitle="Operação diária de clientes e automações."
         action={
           <Button onClick={() => setIsModalOpen(true)}>
             <Plus className="h-4 w-4 mr-2" />
@@ -80,6 +176,15 @@ export const Integrations: React.FC = () => {
           </Button>
         }
       />
+
+      {(actionMessage || actionError) && (
+        <div className={cn(
+          "border-l-4 p-4 rounded",
+          actionError ? "bg-red-50 border-red-500 text-red-700" : "bg-green-50 border-green-500 text-green-700"
+        )}>
+          {actionError || actionMessage}
+        </div>
+      )}
 
       {/* Search Bar */}
       <div className="flex items-center space-x-4 mb-6">
@@ -105,8 +210,9 @@ export const Integrations: React.FC = () => {
               <tr>
                 <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Cliente / Slug</th>
                 <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Webhook URL</th>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Criado em</th>
+                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Checklist</th>
+                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Último Evento</th>
+                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Erros</th>
                 <th scope="col" className="relative px-6 py-3">
                   <span className="sr-only">Ações</span>
                 </th>
@@ -115,49 +221,90 @@ export const Integrations: React.FC = () => {
             <tbody className="bg-white divide-y divide-gray-200">
               {loading ? (
                 <tr>
-                  <td colSpan={5} className="px-6 py-8 text-center text-gray-500">Carregando...</td>
+                  <td colSpan={6} className="px-6 py-8 text-center text-gray-500">Carregando...</td>
                 </tr>
               ) : filteredIntegrations.length === 0 ? (
                 <tr>
-                  <td colSpan={5} className="px-6 py-8 text-center text-gray-500">Nenhuma integração encontrada.</td>
+                  <td colSpan={6} className="px-6 py-8 text-center text-gray-500">Nenhuma integração encontrada.</td>
                 </tr>
               ) : (
-                filteredIntegrations.map((integration) => (
-                  <tr key={integration.id} className="hover:bg-gray-50 cursor-pointer" onClick={() => navigate(`/integrations/${integration.id}`)}>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="flex items-center">
-                        <div className="h-10 w-10 flex-shrink-0 bg-gray-100 rounded-full flex items-center justify-center font-bold text-gray-500">
-                          {integration.name.substring(0, 2).toUpperCase()}
+                filteredIntegrations.map((integration) => {
+                  const progress = getChecklistProgress(integration);
+                  const lastEvent = getLastEvent(events, integration.id);
+                  const hasChecklistError = (integration.checklist || []).some((item) => item.status === 'error');
+                  const hasEventError = events.some((event) => event.integrationId === integration.id && event.status === 'failed');
+                  const hasError = integration.status === 'error' || hasChecklistError || hasEventError;
+
+                  return (
+                    <tr key={integration.id} className="hover:bg-gray-50 cursor-pointer" onClick={() => navigate(`/integrations/${integration.id}`)}>
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        <div className="flex items-center">
+                          <div className="h-10 w-10 flex-shrink-0 bg-gray-100 rounded-full flex items-center justify-center font-bold text-gray-500">
+                            {integration.name.substring(0, 2).toUpperCase()}
+                          </div>
+                          <div className="ml-4">
+                            <div className="text-sm font-medium text-gray-900">{integration.name}</div>
+                            <div className="text-sm text-gray-500">{integration.slug}</div>
+                          </div>
                         </div>
-                        <div className="ml-4">
-                          <div className="text-sm font-medium text-gray-900">{integration.name}</div>
-                          <div className="text-sm text-gray-500">{integration.slug}</div>
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        <Badge variant={getStatusVariant(integration.status)}>
+                          {getStatusLabel(integration.status)}
+                        </Badge>
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        <div className="flex items-center gap-2">
+                          <div className="w-20 bg-gray-200 rounded-full h-2">
+                            <div className="bg-black h-2 rounded-full" style={{ width: `${progress.percent}%` }} />
+                          </div>
+                          <span className="text-xs font-medium">{progress.percent}%</span>
+                          <span className="text-xs text-gray-500">{progress.doneCount}/{progress.requiredCount}</span>
                         </div>
-                      </div>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <Badge variant={integration.status === IntegrationStatus.Active ? 'success' : 'neutral'}>
-                        {integration.status}
-                      </Badge>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                      <div className="flex items-center space-x-2 max-w-xs truncate font-mono text-xs bg-gray-50 px-2 py-1 rounded border border-gray-100">
-                        <span className="truncate">.../webhook/email/{integration.slug}</span>
-                      </div>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                      {formatDate(integration.createdAt)}
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                       <Button variant="ghost" size="sm" onClick={(e) => {
-                         e.stopPropagation();
-                         navigate(`/integrations/${integration.id}`);
-                       }}>
-                         Ver
-                       </Button>
-                    </td>
-                  </tr>
-                ))
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        {lastEvent?.receivedAt ? formatDate(lastEvent.receivedAt) : '—'}
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        {hasError ? (
+                          <span className="inline-flex items-center text-red-600 text-xs font-medium">
+                            <AlertTriangle className="h-4 w-4 mr-1" /> erro
+                          </span>
+                        ) : integration.status === 'active' ? (
+                          <span className="text-xs text-gray-400">OK</span>
+                        ) : (
+                          <span className="text-xs text-gray-400">—</span>
+                        )}
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                         <div className="flex justify-end items-center gap-2">
+                           <Button variant="ghost" size="sm" onClick={(e) => {
+                             e.stopPropagation();
+                             navigate(`/integrations/${integration.id}`);
+                           }}>
+                             Ver
+                           </Button>
+                           <Button
+                             variant="outline"
+                             size="sm"
+                             onClick={(e) => handleTest(integration, e)}
+                             disabled={!internalActionsEnabled || testingId === integration.id}
+                           >
+                             {testingId === integration.id ? <Loader2 className="h-4 w-4 mr-2 animate-spin" /> : <PlayCircle className="h-4 w-4 mr-2" />}
+                             Testar
+                           </Button>
+                           <button
+                              onClick={(e) => handleDelete(integration.id, integration.name, e)}
+                              className="p-1 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded transition-colors"
+                              title="Excluir Integração"
+                           >
+                             <Trash2 className="h-4 w-4" />
+                           </button>
+                         </div>
+                      </td>
+                    </tr>
+                  );
+                })
               )}
             </tbody>
           </table>

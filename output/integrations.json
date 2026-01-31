@@ -1,62 +1,244 @@
 [
   {
-    "id": "test_1",
-    "name": "Teste Storage",
-    "slug": "teste-storage"
-  },
-  {
-    "id": "c45e2739-7dfe-4111-a3e3-68af11bb4a88",
-    "name": "Generauto",
-    "slug": "generauto",
-    "status": "active",
-    "createdAt": "2026-01-22T20:55:00.777Z",
-    "credentials": {
-      "pitToken": "",
-      "locationId": ""
+    "id": "e5e05d87-6ae5-4910-af6b-13e6c78766d8",
+    "name": "Avenida Veículos",
+    "slug": "avenida",
+    "status": "error",
+    "crm": {
+      "locationId": "I9mx7teQvrxMQWBwKtlP",
+      "pitToken": "pit-794d7711-3a58-4b77-8c5e-68749002019c",
+      "workflowId": "f7792a3b-d756-4dc7-bc8a-7be37ef69257",
+      "workflowIds": {
+        "1.1 Cria Oportunidade > Portais": "f7792a3b-d756-4dc7-bc8a-7be37ef69257",
+        "RECEBIMENTO DE LEADS (PORTAIS)": "927af86c-eab8-455c-8376-a4ce9919b52e"
+      },
+      "customWebhookFieldId": "PGzneJ5tiaTN1leACN5T",
+      "supportUserEmail": ""
     },
     "checklist": [
       {
-        "id": "1",
-        "label": "Integração criada",
-        "checked": true,
-        "status": "Done"
+        "key": "subconta_criada",
+        "label": "Subconta criada",
+        "type": "manual",
+        "required": true,
+        "dependsOn": [],
+        "status": "done",
+        "notes": "",
+        "validatedAt": "2026-01-31T18:52:55.687Z",
+        "validatedBy": "system"
       },
       {
-        "id": "2",
-        "label": "Credenciais configuradas",
-        "checked": false,
-        "status": "Pending"
+        "key": "pit_token_inserido",
+        "label": "PIT Token inserido",
+        "type": "manual",
+        "required": true,
+        "dependsOn": [],
+        "status": "done",
+        "notes": "",
+        "validatedAt": "2026-01-31T18:52:47.686Z",
+        "validatedBy": "system"
       },
       {
-        "id": "3",
-        "label": "Sub-conta criada",
-        "checked": false,
-        "status": "Pending"
+        "key": "workflow_duplicado",
+        "label": "Workflow duplicado",
+        "type": "manual",
+        "required": true,
+        "dependsOn": [],
+        "status": "done",
+        "notes": "",
+        "validatedAt": "2026-01-31T18:53:01.004Z",
+        "validatedBy": "technician"
       },
       {
-        "id": "4",
+        "key": "custom_value_webhook_criado",
+        "label": "Custom Value Webhook criado",
+        "type": "auto",
+        "required": true,
+        "dependsOn": [
+          "subconta_criada",
+          "pit_token_inserido"
+        ],
+        "status": "done",
+        "notes": "",
+        "validatedAt": "2026-01-31T19:07:10.843Z",
+        "validatedBy": "system"
+      },
+      {
+        "key": "dns_configurado",
         "label": "DNS configurado",
-        "checked": false,
-        "status": "Pending"
+        "type": "manual",
+        "required": true,
+        "dependsOn": [],
+        "status": "done",
+        "notes": "",
+        "validatedAt": "2026-01-31T19:23:43.054Z",
+        "validatedBy": "technician"
       },
       {
-        "id": "5",
-        "label": "Email de notificação",
-        "checked": false,
-        "status": "Pending"
+        "key": "usuario_suporte_criado",
+        "label": "Usuario de suporte criado",
+        "type": "auto",
+        "required": true,
+        "dependsOn": [
+          "subconta_criada",
+          "pit_token_inserido",
+          "dns_configurado"
+        ],
+        "status": "error",
+        "notes": "The Company ID is invalid.",
+        "validatedAt": "2026-01-31T19:27:09.641Z",
+        "validatedBy": "system"
       },
       {
-        "id": "6",
-        "label": "Automação ativada",
-        "checked": false,
-        "status": "Pending"
+        "key": "webhook_healthcheck",
+        "label": "Webhook healthcheck",
+        "type": "auto",
+        "required": true,
+        "dependsOn": [
+          "subconta_criada"
+        ],
+        "status": "done",
+        "notes": "",
+        "validatedAt": "2026-01-31T19:28:38.612Z",
+        "validatedBy": "system"
       },
       {
-        "id": "7",
-        "label": "Webhook recebendo dados",
-        "checked": false,
-        "status": "Pending"
+        "key": "webhook_testado",
+        "label": "Webhook testado",
+        "type": "auto",
+        "required": true,
+        "dependsOn": [
+          "webhook_healthcheck"
+        ],
+        "status": "pending",
+        "notes": "",
+        "validatedAt": null,
+        "validatedBy": null
       }
-    ]
+    ],
+    "createdAt": "2026-01-31T18:47:28.183Z",
+    "updatedAt": "2026-01-31T19:28:38.612Z"
+  },
+  {
+    "id": "8297494d-82a4-4605-8afb-ff5ca0409e61",
+    "name": "AMC Veículos",
+    "slug": "amcveiculos",
+    "status": "error",
+    "crm": {
+      "locationId": "L2b97kq1i5tk1Fr51AsI",
+      "pitToken": "pit-8a9f6a28-a6df-4555-967b-b89c11f01244",
+      "workflowId": "8f47fd5f-416e-4585-b7c2-aa9679a0dc0c",
+      "workflowIds": {
+        "1.1 Cria Oportunidade > Portais": "8f47fd5f-416e-4585-b7c2-aa9679a0dc0c",
+        "RECEBIMENTO DE LEADS (PORTAIS)": "e1b88135-33cb-44db-a7e5-4030c3f3f878"
+      },
+      "customWebhookFieldId": "q77mwyu4wRJMfQrX187L",
+      "supportUserEmail": ""
+    },
+    "checklist": [
+      {
+        "key": "subconta_criada",
+        "label": "Subconta criada",
+        "type": "manual",
+        "required": true,
+        "dependsOn": [],
+        "status": "done",
+        "notes": "",
+        "validatedAt": "2026-01-31T19:31:19.792Z",
+        "validatedBy": "system"
+      },
+      {
+        "key": "pit_token_inserido",
+        "label": "PIT Token inserido",
+        "type": "manual",
+        "required": true,
+        "dependsOn": [],
+        "status": "done",
+        "notes": "",
+        "validatedAt": "2026-01-31T19:31:52.656Z",
+        "validatedBy": "system"
+      },
+      {
+        "key": "workflow_duplicado",
+        "label": "Workflow duplicado",
+        "type": "manual",
+        "required": true,
+        "dependsOn": [],
+        "status": "done",
+        "notes": "",
+        "validatedAt": "2026-01-31T19:31:56.042Z",
+        "validatedBy": "technician"
+      },
+      {
+        "key": "custom_value_webhook_criado",
+        "label": "Custom Value Webhook criado",
+        "type": "auto",
+        "required": true,
+        "dependsOn": [
+          "subconta_criada",
+          "pit_token_inserido"
+        ],
+        "status": "done",
+        "notes": "",
+        "validatedAt": "2026-01-31T19:32:04.220Z",
+        "validatedBy": "system"
+      },
+      {
+        "key": "dns_configurado",
+        "label": "DNS configurado",
+        "type": "manual",
+        "required": true,
+        "dependsOn": [],
+        "status": "done",
+        "notes": "",
+        "validatedAt": "2026-01-31T19:43:06.271Z",
+        "validatedBy": "technician"
+      },
+      {
+        "key": "usuario_suporte_criado",
+        "label": "Usuario de suporte criado",
+        "type": "auto",
+        "required": true,
+        "dependsOn": [
+          "subconta_criada",
+          "pit_token_inserido",
+          "dns_configurado"
+        ],
+        "status": "error",
+        "notes": [
+          "each value in scopes must be a valid enum value"
+        ],
+        "validatedAt": "2026-01-31T19:58:08.138Z",
+        "validatedBy": "system"
+      },
+      {
+        "key": "webhook_healthcheck",
+        "label": "Webhook healthcheck",
+        "type": "auto",
+        "required": true,
+        "dependsOn": [
+          "subconta_criada"
+        ],
+        "status": "pending",
+        "notes": "",
+        "validatedAt": null,
+        "validatedBy": null
+      },
+      {
+        "key": "webhook_testado",
+        "label": "Webhook testado",
+        "type": "auto",
+        "required": true,
+        "dependsOn": [
+          "webhook_healthcheck"
+        ],
+        "status": "pending",
+        "notes": "",
+        "validatedAt": null,
+        "validatedBy": null
+      }
+    ],
+    "createdAt": "2026-01-31T19:30:09.012Z",
+    "updatedAt": "2026-01-31T19:58:08.138Z"
   }
 ]

@@ -30,9 +30,16 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ to, icon: Icon, label }) => {
 
 export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const location = useLocation();
+  const appEnv = (import.meta as any)?.env?.VITE_ENV;
+  const isStaging = appEnv === 'staging';
 
   return (
     <div className="flex h-screen w-full bg-gray-50">
+      {isStaging && (
+        <div className="fixed top-4 right-4 z-50 rounded-md bg-yellow-200 text-yellow-900 text-xs font-semibold px-3 py-1 shadow">
+          STAGING
+        </div>
+      )}
       {/* Sidebar */}
       <div className="hidden w-64 flex-col fixed inset-y-0 z-50 border-r border-gray-200 bg-white md:flex">
         <div className="flex h-16 flex-shrink-0 items-center px-4 border-b border-gray-200">

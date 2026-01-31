@@ -1,17 +1,17 @@
 const storage = require('../storage');
-const fs = require('fs-extra');
-const path = require('path');
+const integrationService = require('../services/integration-service');
 
 async function test() {
   console.log('🚀 Iniciando teste do storage.js...');
 
   // 1. Teste de Integrações
-  console.log('\n1️⃣ Testando escrita de integrações...');
-  const mockIntegration = { id: 'test_1', name: 'Teste Storage', slug: 'teste-storage' };
-  await storage.writeIntegrations([mockIntegration]);
+  console.log('\n1️⃣ Testando escrita de integrações via service...');
+  const slug = `teste-storage-${Date.now()}`;
+  await integrationService.createIntegration({ name: 'Teste Storage', slug });
   
-  const integrations = await storage.readIntegrations();
-  if (integrations.length === 1 && integrations[0].slug === 'teste-storage') {
+  const integrations = await integrationService.listIntegrations({ maskSensitive: false });
+  const created = integrations.find((item) => item.slug === slug);
+  if (created) {
     console.log('✅ Integração salva e lida corretamente.');
   } else {
     console.error('❌ Falha na leitura/escrita de integrações.');

@@ -10,19 +10,23 @@ const API_CONFIG = {
  */
 function makeRequest(path, method, data, token) {
   return new Promise((resolve, reject) => {
-    const postData = JSON.stringify(data);
+    const hasBody = method !== 'GET' && data !== undefined && data !== null;
+    const postData = hasBody ? JSON.stringify(data) : '';
     const options = {
       hostname: API_CONFIG.hostname,
       path,
       method,
       headers: {
-        'Content-Type': 'application/json',
         'Accept': 'application/json',
         'Version': API_CONFIG.version,
-        'Authorization': `Bearer ${token}`,
-        'Content-Length': Buffer.byteLength(postData)
+        'Authorization': `Bearer ${token}`
       }
     };
+
+    if (hasBody) {
+      options.headers['Content-Type'] = 'application/json';
+      options.headers['Content-Length'] = Buffer.byteLength(postData);
+    }
 
     const req = https.request(options, (res) => {
       let responseBody = '';
@@ -49,7 +53,9 @@ function makeRequest(path, method, data, token) {
     });
 
     req.on('error', (e) => reject(e));
-    req.write(postData);
+    if (hasBody) {
+      req.write(postData);
+    }
     req.end();
   });
 }
@@ -93,4 +99,30 @@ function upsertOpportunity(opportunityDetails, credentials) {
   return makeRequest('/opportunities/upsert', 'POST', payload, credentials.pitToken);
 }
 
-module.exports = { createContact, upsertOpportunity };
+function listWorkflows(locationId, token) {
+  const query = `/workflows/?locationId=${encodeURIComponent(locationId)}`;
+  return makeRequest(query, 'GET', null, token);
+}
+
+function listCustomValues(locationId, token) {
+  const path = `/locations/${encodeURIComponent(locationId)}/customValues`;
+  return makeRequest(path, 'GET', null, token);
+}
+
+function createCustomValue(locationId, payload, token) {
+  const path = `/locations/${encodeURIComponent(locationId)}/customValues`;
+  return makeRequest(path, 'POST', payload, token);
+}
+
+function createSupportUser(payload, token) {
+  return makeRequest('/users/', 'POST', payload, token);
+}
+
+module.exports = {
+  createContact,
+  upsertOpportunity,
+  listWorkflows,
+  listCustomValues,
+  createCustomValue,
+  createSupportUser
+};

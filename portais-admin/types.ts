@@ -1,7 +1,19 @@
-export enum IntegrationStatus {
-  Active = 'Active',
-  Inactive = 'Inactive',
-  Paused = 'Paused'
+export type IntegrationStatus = 'draft' | 'onboarding' | 'active' | 'error';
+
+export type ChecklistItemStatus = 'pending' | 'done' | 'error';
+export type ChecklistItemType = 'auto' | 'manual';
+export type ChecklistValidatedBy = 'system' | 'technician' | null;
+
+export interface ChecklistItem {
+  key: string;
+  label: string;
+  type: ChecklistItemType;
+  required: boolean;
+  dependsOn?: string[];
+  status: ChecklistItemStatus;
+  notes?: string;
+  validatedAt?: string | null;
+  validatedBy?: ChecklistValidatedBy;
 }
 
 export interface Integration {
@@ -9,65 +21,61 @@ export interface Integration {
   name: string;
   slug: string;
   status: IntegrationStatus;
-  webhookUrl: string;
-  createdAt: string;
-  lastActivity: string;
-  credentials: {
-    pitToken: string;
+  crm: {
     locationId: string;
+    pitToken?: string;
     workflowId: string;
-    lastUpdated: string;
+    workflowIds?: Record<string, string>;
+    customWebhookFieldId: string;
+    supportUserEmail?: string;
   };
-  checklist: SetupChecklistItem[];
+  checklist: ChecklistItem[];
+  createdAt: string;
+  updatedAt: string;
 }
 
-export interface SetupChecklistItem {
-  id: string;
-  label: string;
-  checked: boolean;
-  status: 'Pending' | 'In Progress' | 'Done';
-  notes?: string;
-}
-
-export enum WebhookStatus {
-  Received = 'Received',
-  Processed = 'Processed',
-  Failed = 'Failed'
-}
+export type WebhookEventStatus = 'received' | 'processed' | 'failed';
 
 export interface WebhookEvent {
-  id: string;
+  id?: string;
+  eventId?: string;
   integrationId: string;
-  integrationName: string;
-  source: string;
-  status: WebhookStatus;
-  timestamp: string;
-  payload: Record<string, any>;
+  integrationSlug?: string;
+  status: WebhookEventStatus;
+  error?: { code?: string; message?: string; step?: string } | null;
+  processedAt?: string | null;
+  receivedAt?: string;
+  headers?: Record<string, any>;
+  body?: Record<string, any>;
+  attempts?: number;
 }
 
+export type LeadStatus = 'pending' | 'sent' | 'failed';
+
 export interface Lead {
-  id: string;
+  id?: string;
+  leadId?: string;
+  eventId?: string;
   integrationId: string;
-  integrationName: string;
-  name: string;
-  email: string;
-  phone: string;
-  source: string;
-  status: 'New' | 'Synced' | 'Error';
-  crmId?: string;
-  createdAt: string;
+  integrationName?: string;
+  status: LeadStatus;
+  lastError?: { code?: string; message?: string } | string | null;
+  lastAttemptAt?: string | null;
+  attempts?: number;
+  receivedAt?: string;
+  nome?: string;
+  email?: string;
+  telefone?: string;
+  fonte_do_lead?: string;
+  [key: string]: any;
 }
 
 export interface LogEntry {
-  id: string;
   timestamp: string;
-  level: 'INFO' | 'WARN' | 'ERROR';
+  integrationId?: string | null;
+  eventId?: string | null;
+  leadId?: string | null;
+  category: 'EVENT' | 'LEAD' | 'CRM' | 'CHECKLIST' | 'ERROR' | 'RETRY' | string;
   message: string;
-  integrationId?: string;
-}
-
-export interface DNSRecord {
-  type: string;
-  host: string;
-  value: string;
+  metadata?: Record<string, any>;
 }
