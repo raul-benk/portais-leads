@@ -1392,7 +1392,9 @@ const ensureSupportUser = async (id) => {
     }
     const email = emailPattern.replace('{slug}', current.slug);
 
-    const scopes = Array.isArray(crmConfig.supportUser?.scopes) ? crmConfig.supportUser.scopes : [];
+    const scopes = Array.isArray(crmConfig.supportUser?.scopes)
+      ? Array.from(new Set(crmConfig.supportUser.scopes.map((scope) => String(scope || '').trim()).filter(Boolean)))
+      : [];
     if (scopes.length === 0) {
       throw createServiceError('CRM_CONFIG_INVALID', 'supportUser.scopes nao configurado.', 500);
     }

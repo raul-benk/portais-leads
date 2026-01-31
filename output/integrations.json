@@ -1,139 +1,19 @@
 [
   {
-    "id": "e5e05d87-6ae5-4910-af6b-13e6c78766d8",
-    "name": "Avenida Veículos",
-    "slug": "avenida",
-    "status": "error",
-    "crm": {
-      "locationId": "I9mx7teQvrxMQWBwKtlP",
-      "pitToken": "pit-794d7711-3a58-4b77-8c5e-68749002019c",
-      "workflowId": "f7792a3b-d756-4dc7-bc8a-7be37ef69257",
-      "workflowIds": {
-        "1.1 Cria Oportunidade > Portais": "f7792a3b-d756-4dc7-bc8a-7be37ef69257",
-        "RECEBIMENTO DE LEADS (PORTAIS)": "927af86c-eab8-455c-8376-a4ce9919b52e"
-      },
-      "customWebhookFieldId": "PGzneJ5tiaTN1leACN5T",
-      "supportUserEmail": ""
-    },
-    "checklist": [
-      {
-        "key": "subconta_criada",
-        "label": "Subconta criada",
-        "type": "manual",
-        "required": true,
-        "dependsOn": [],
-        "status": "done",
-        "notes": "",
-        "validatedAt": "2026-01-31T18:52:55.687Z",
-        "validatedBy": "system"
-      },
-      {
-        "key": "pit_token_inserido",
-        "label": "PIT Token inserido",
-        "type": "manual",
-        "required": true,
-        "dependsOn": [],
-        "status": "done",
-        "notes": "",
-        "validatedAt": "2026-01-31T18:52:47.686Z",
-        "validatedBy": "system"
-      },
-      {
-        "key": "workflow_duplicado",
-        "label": "Workflow duplicado",
-        "type": "manual",
-        "required": true,
-        "dependsOn": [],
-        "status": "done",
-        "notes": "",
-        "validatedAt": "2026-01-31T18:53:01.004Z",
-        "validatedBy": "technician"
-      },
-      {
-        "key": "custom_value_webhook_criado",
-        "label": "Custom Value Webhook criado",
-        "type": "auto",
-        "required": true,
-        "dependsOn": [
-          "subconta_criada",
-          "pit_token_inserido"
-        ],
-        "status": "done",
-        "notes": "",
-        "validatedAt": "2026-01-31T19:07:10.843Z",
-        "validatedBy": "system"
-      },
-      {
-        "key": "dns_configurado",
-        "label": "DNS configurado",
-        "type": "manual",
-        "required": true,
-        "dependsOn": [],
-        "status": "done",
-        "notes": "",
-        "validatedAt": "2026-01-31T19:23:43.054Z",
-        "validatedBy": "technician"
-      },
-      {
-        "key": "usuario_suporte_criado",
-        "label": "Usuario de suporte criado",
-        "type": "auto",
-        "required": true,
-        "dependsOn": [
-          "subconta_criada",
-          "pit_token_inserido",
-          "dns_configurado"
-        ],
-        "status": "error",
-        "notes": "The Company ID is invalid.",
-        "validatedAt": "2026-01-31T19:27:09.641Z",
-        "validatedBy": "system"
-      },
-      {
-        "key": "webhook_healthcheck",
-        "label": "Webhook healthcheck",
-        "type": "auto",
-        "required": true,
-        "dependsOn": [
-          "subconta_criada"
-        ],
-        "status": "done",
-        "notes": "",
-        "validatedAt": "2026-01-31T19:28:38.612Z",
-        "validatedBy": "system"
-      },
-      {
-        "key": "webhook_testado",
-        "label": "Webhook testado",
-        "type": "auto",
-        "required": true,
-        "dependsOn": [
-          "webhook_healthcheck"
-        ],
-        "status": "pending",
-        "notes": "",
-        "validatedAt": null,
-        "validatedBy": null
-      }
-    ],
-    "createdAt": "2026-01-31T18:47:28.183Z",
-    "updatedAt": "2026-01-31T19:28:38.612Z"
-  },
-  {
-    "id": "8297494d-82a4-4605-8afb-ff5ca0409e61",
+    "id": "885bd3eb-56de-40b0-b2f6-ee2ba80250a5",
     "name": "AMC Veículos",
     "slug": "amcveiculos",
-    "status": "error",
+    "status": "active",
     "crm": {
       "locationId": "L2b97kq1i5tk1Fr51AsI",
-      "pitToken": "pit-8a9f6a28-a6df-4555-967b-b89c11f01244",
+      "pitToken": "pit-5f3d4a02-fac7-4d60-81c5-19bb5aeba21b",
       "workflowId": "8f47fd5f-416e-4585-b7c2-aa9679a0dc0c",
       "workflowIds": {
         "1.1 Cria Oportunidade > Portais": "8f47fd5f-416e-4585-b7c2-aa9679a0dc0c",
         "RECEBIMENTO DE LEADS (PORTAIS)": "e1b88135-33cb-44db-a7e5-4030c3f3f878"
       },
       "customWebhookFieldId": "q77mwyu4wRJMfQrX187L",
-      "supportUserEmail": ""
+      "supportUserEmail": "suporte@amcveiculos.appzoi.com.br"
     },
     "checklist": [
       {
@@ -144,7 +24,7 @@
         "dependsOn": [],
         "status": "done",
         "notes": "",
-        "validatedAt": "2026-01-31T19:31:19.792Z",
+        "validatedAt": "2026-01-31T20:15:38.957Z",
         "validatedBy": "system"
       },
       {
@@ -155,7 +35,7 @@
         "dependsOn": [],
         "status": "done",
         "notes": "",
-        "validatedAt": "2026-01-31T19:31:52.656Z",
+        "validatedAt": "2026-01-31T20:15:44.522Z",
         "validatedBy": "system"
       },
       {
@@ -166,7 +46,7 @@
         "dependsOn": [],
         "status": "done",
         "notes": "",
-        "validatedAt": "2026-01-31T19:31:56.042Z",
+        "validatedAt": "2026-01-31T20:16:31.413Z",
         "validatedBy": "technician"
       },
       {
@@ -180,7 +60,7 @@
         ],
         "status": "done",
         "notes": "",
-        "validatedAt": "2026-01-31T19:32:04.220Z",
+        "validatedAt": "2026-01-31T20:15:57.458Z",
         "validatedBy": "system"
       },
       {
@@ -191,7 +71,7 @@
         "dependsOn": [],
         "status": "done",
         "notes": "",
-        "validatedAt": "2026-01-31T19:43:06.271Z",
+        "validatedAt": "2026-01-31T20:16:12.627Z",
         "validatedBy": "technician"
       },
       {
@@ -204,11 +84,9 @@
           "pit_token_inserido",
           "dns_configurado"
         ],
-        "status": "error",
-        "notes": [
-          "each value in scopes must be a valid enum value"
-        ],
-        "validatedAt": "2026-01-31T19:58:08.138Z",
+        "status": "done",
+        "notes": "",
+        "validatedAt": "2026-01-31T20:16:15.758Z",
         "validatedBy": "system"
       },
       {
@@ -219,10 +97,10 @@
         "dependsOn": [
           "subconta_criada"
         ],
-        "status": "pending",
+        "status": "done",
         "notes": "",
-        "validatedAt": null,
-        "validatedBy": null
+        "validatedAt": "2026-01-31T20:16:20.854Z",
+        "validatedBy": "system"
       },
       {
         "key": "webhook_testado",
@@ -232,13 +110,13 @@
         "dependsOn": [
           "webhook_healthcheck"
         ],
-        "status": "pending",
+        "status": "done",
         "notes": "",
-        "validatedAt": null,
-        "validatedBy": null
+        "validatedAt": "2026-01-31T20:16:37.680Z",
+        "validatedBy": "system"
       }
     ],
-    "createdAt": "2026-01-31T19:30:09.012Z",
-    "updatedAt": "2026-01-31T19:58:08.138Z"
+    "createdAt": "2026-01-31T20:15:08.291Z",
+    "updatedAt": "2026-01-31T20:16:37.680Z"
   }
 ]

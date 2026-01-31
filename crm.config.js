@@ -11,7 +11,7 @@ module.exports = {
   supportUser: {
     firstName: 'Suporte',
     lastName: 'Integracoes',
-    emailPattern: 'suporte@{slug}dominio.com',
+    emailPattern: 'suporte@{slug}.appzoi.com.br',
     companyId: 'FevLf4DJoE5QlF3MDviM',
     role: 'admin',
     type: 'account',

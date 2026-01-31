@@ -734,5 +734,41 @@
   {
     "id": "lead_4",
     "name": "Lead 4"
+  },
+  {
+    "id": "a83f274e-b1b3-4dd6-9612-5c86f65e4804",
+    "leadId": "a83f274e-b1b3-4dd6-9612-5c86f65e4804",
+    "eventId": "2b0ae261-e2b1-4856-8b8a-c87a79369132",
+    "integrationId": "77b2c680-e99a-42ae-910b-51049181a61f",
+    "integrationName": "AMC Veículos",
+    "receivedAt": "2026-01-31T20:12:20.398Z",
+    "status": "pending",
+    "lastError": null,
+    "lastAttemptAt": null,
+    "attempts": 0,
+    "nome": "Teste amcveiculos",
+    "telefone": "(11) 90000-0000",
+    "email": "teste@exemplo.com",
+    "fonte_do_lead": "Teste Automacao",
+    "veiculo_interesse": "Carro Teste",
+    "preco": "100000"
+  },
+  {
+    "id": "c6d1af9f-2c0c-4e86-b317-171b9182a2be",
+    "leadId": "c6d1af9f-2c0c-4e86-b317-171b9182a2be",
+    "eventId": "27d4e852-32e4-4f79-9013-ef14802f2a1f",
+    "integrationId": "885bd3eb-56de-40b0-b2f6-ee2ba80250a5",
+    "integrationName": "AMC Veículos",
+    "receivedAt": "2026-01-31T20:16:37.663Z",
+    "status": "pending",
+    "lastError": null,
+    "lastAttemptAt": null,
+    "attempts": 0,
+    "nome": "Teste amcveiculos",
+    "telefone": "(11) 90000-0000",
+    "email": "teste@exemplo.com",
+    "fonte_do_lead": "Teste Automacao",
+    "veiculo_interesse": "Carro Teste",
+    "preco": "100000"
   }
 ]
